@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>MathGenius</title>
+</head>
+<body>
+    <header>
+        <div class="logo">MathGenius</div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Courses</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <h1>Welcome to MathGenius</h1>
+            <p>Learn math in a fun and interactive way!</p>
+            <button onclick="exploreCourses()">Explore Courses</button>
+        </section>
+        <section class="features">
+            <div class="feature">
+                <h2>Interactive Lessons</h2>
+                <p>Engage with interactive lessons and quizzes.</p>
+            </div>
+            <div class="feature">
+                <h2>Expert Tutors</h2>
+                <p>Learn from the best tutors in the industry.</p>
+            </div>
+            <div class="feature">
+                <h2>Progress Tracking</h2>
+                <p>Track your progress and improve continuously.</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 MathGenius. All rights reserved.</p>
+    </footer>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

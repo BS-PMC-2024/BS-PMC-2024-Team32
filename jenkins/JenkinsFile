@@ -23,14 +23,15 @@ pipeline {
         stage('Test') {
             agent {
                 docker {
-                    image 'qnib/pytest'
+                    image 'python:3.10-slim'  // Use the same image for testing
                     args '-u root'  // Running as root to avoid permission issues
                 }
             }
             steps {
                 sh 'pip install --upgrade pip'  // Ensure pip is up-to-date
+                sh 'pip install --no-cache-dir pytest'  // Install pytest
                 sh 'pip install --no-cache-dir -r requirements.txt'
-                sh 'py.test --verbose --junit-xml test-reports/results.xml sources/test_calc.py'
+                sh 'pytest --verbose --junit-xml=test-reports/results.xml sources/test_calc.py'
             }
             post {
                 always {
@@ -40,4 +41,5 @@ pipeline {
         }
     }
 }
+
 

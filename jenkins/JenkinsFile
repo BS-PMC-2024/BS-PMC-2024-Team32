@@ -7,14 +7,28 @@ pipeline {
                 git branch: 'main', credentialsId: 'SCEProject', url: 'https://github.com/BS-PMC-2024/BS-PMC-2024-Team32.git'
             }
         }
+        stage('Verify Environment') {
+            agent {
+                docker {
+                    image 'python:3.10-slim'
+                    args '-u root'  // Running as root to avoid permission issues
+                }
+            }
+            steps {
+                sh 'pip --version'  // Print pip version
+                sh 'python -m pip show blinker'  // Print blinker version
+                sh 'ping -c 3 pypi.org'  // Check network connectivity to PyPI
+            }
+        }
         stage('Build') {
             agent {
                 docker {
                     image 'python:3.10-slim'
-		    args '-u root'	
+                    args '-u root'  // Running as root to avoid permission issues
                 }
             }
             steps {
+                sh 'pip install --upgrade pip'  // Ensure pip is up-to-date
                 sh 'pip install --no-cache-dir -r requirements.txt'
                 sh 'python -m py_compile sources/add2vals.py sources/calc.py'
             }
@@ -23,9 +37,11 @@ pipeline {
             agent {
                 docker {
                     image 'qnib/pytest'
+                    args '-u root'  // Running as root to avoid permission issues
                 }
             }
             steps {
+                sh 'pip install --upgrade pip'  // Ensure pip is up-to-date
                 sh 'pip install --no-cache-dir -r requirements.txt'
                 sh 'py.test --verbose --junit-xml test-reports/results.xml sources/test_calc.py'
             }
@@ -37,3 +53,4 @@ pipeline {
         }
     }
 }
+

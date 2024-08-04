@@ -11,7 +11,8 @@ pipeline {
             agent any
             steps {
                 script {
-                    docker.build('mathgenius', '-f Dockerfile .')
+                    // Build the Docker image
+                    sh 'docker build -t mathgenius .'
                 }
             }
         }
@@ -21,19 +22,22 @@ pipeline {
                 script {
                     // Stop and remove any existing container
                     sh 'docker rm -f mathgenius_container || true'
-                    // Run the new container in detached mode
-                    sh 'docker run -d --name mathgenius_container mathgenius'
+                    // Run the new container
+                    sh 'docker run -d -p 5000:5000 --name mathgenius_container mathgenius'
                 }
             }
         }
-        stage('Run Tests') {
+        stage('Test') {
             agent {
                 docker {
-                    image 'mathgenius'
+                    image 'python:3.10-slim'  // Use the same image for testing
                     args '-u root'  // Running as root to avoid permission issues
                 }
             }
             steps {
+                sh 'pip install --upgrade pip'  // Ensure pip is up-to-date
+                sh 'pip install --no-cache-dir pytest'  // Install pytest
+                sh 'pip install --no-cache-dir -r requirements.txt'
                 sh 'pytest --verbose --junit-xml=test-reports/results.xml sources/test_calc.py'
             }
             post {
@@ -45,10 +49,19 @@ pipeline {
     }
     post {
         always {
-            script {
-                // Cleanup: stop and remove the container
-                sh 'docker rm -f mathgenius_container || true'
+            // Clean up the Docker container
+            agent any
+            steps {
+                script {
+                    sh 'docker rm -f mathgenius_container || true'
+                }
             }
+        }
+        success {
+            echo 'Pipeline completed successfully!'
+        }
+        failure {
+            echo 'Pipeline failed.'
         }
     }
 }

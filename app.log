@@ -1,0 +1,203 @@
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.17.0.2:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 230-519-169
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 12:47:31] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 12:47:31] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 12:47:31] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 12:47:31] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 12:47:31] "[36mGET /static/css/bootstrap.min.css.map HTTP/1.1[0m" 304 -
+DEBUG:root:User object created
+DEBUG:root:Setting password for user TestAZ
+DEBUG:root:Generated hash: scrypt:32768:8:1$12SgWpJrla4d28tY$1bff2cc03e7d3932a3a4022298e6d290843223204b6bf1293538f90049ac86a3275fe17017d8f50695a8027d0a96ca2837f0885443999219327a28d4e38af0bd
+DEBUG:root:Password set. Plain password: 123
+DEBUG:root:User added to session
+DEBUG:root:Session committed
+DEBUG:root:Created user TestAE with password hash: scrypt:32768:8:1$12SgWpJrla4d28tY$1bff2cc03e7d3932a3a4022298e6d290843223204b6bf1293538f90049ac86a3275fe17017d8f50695a8027d0a96ca
+DEBUG:root:Checking password for user TestAZ
+DEBUG:root:Stored hash: scrypt:32768:8:1$12SgWpJrla4d28tY$1bff2cc03e7d3932a3a4022298e6d290843223204b6bf1293538f90049ac86a3275fe17017d8f50695a8027d0a96ca
+DEBUG:root:Input password: 123
+DEBUG:root:New hash generated from input: scrypt:32768:8:1$OdlmgfJZpbe1KzlA$21c868c1f9a81b5605539f9286ad03bb4adb6c3c1134e74d77a167a3ef20ef75da3aec26e3afb7a1ff8bb903fb4ee6d8c42fa2438e70ddf3662b67186e56e214
+DEBUG:root:Password check result: False
+DEBUG:root:Immediate password check result: False
+DEBUG:root:Fetched user from database. Hash: scrypt:32768:8:1$6zA714yhewHPqD37$90194ca601057829eb4022cb3df2522692526e5e76cdb4676b327b17e68659e699a47b9faf4098f50450325a8851ae
+DEBUG:root:Checking password for user TestAE
+DEBUG:root:Stored hash: scrypt:32768:8:1$6zA714yhewHPqD37$90194ca601057829eb4022cb3df2522692526e5e76cdb4676b327b17e68659e699a47b9faf4098f50450325a8851ae
+DEBUG:root:Input password: 123
+DEBUG:root:New hash generated from input: scrypt:32768:8:1$LCRjoW65TLtOFf95$5f957c32fa091382ce2129538ac523924cf5b07f07bcc9eed8016e8fb46d1fad229bf4db7f1aabf983ece88a626bfe3047d7a692c3ace7ea27728987d6bb9b60
+DEBUG:root:Password check result: False
+DEBUG:root:Second password check result: False
+DEBUG:root:Newly generated hash for comparison: scrypt:32768:8:1$dPhYiziVjWIHdgEP$bbcf030ffa938b333261aea039ba34f6403751794326f31e4628abfdcfd2d280da59d75316c3dcb8717ae45c528b24a57c658fb283ca6b2a1d78ac42b4b6ef96
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 12:47:39] "GET /create_test_user HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 12:47:39] "[36mGET /static/css/bootstrap.min.css.map HTTP/1.1[0m" 304 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.17.0.2:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 130-849-918
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 13:02:29] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 13:02:29] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 13:02:29] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 13:02:29] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 13:02:33] "GET /test_db HTTP/1.1" 200 -
+DEBUG:root:Setting password for user TestAF
+DEBUG:root:Generated hash: scrypt:32768:8:1$oUAgJKIDKAIknpqR$8cec14db2bdae0abacb6bea2bc0437f5cc5112491c02a61fe42efb05d81af10904a1c8df15debc82d64252db5e5bff8d9c2492faf0af0cfed0186140aca11b94
+DEBUG:root:Hash stored in database: scrypt:32768:8:1$oUAgJKIDKAIknpqR$8cec14db2bdae0abacb6bea2bc0437f5cc5112491c02a61fe42efb05d81af10904a1c8df15debc82d64252db5e5bff
+DEBUG:root:Hash in user object: scrypt:32768:8:1$oUAgJKIDKAIknpqR$8cec14db2bdae0abacb6bea2bc0437f5cc5112491c02a61fe42efb05d81af10904a1c8df15debc82d64252db5e5bff
+DEBUG:root:Checking password for user TestAF
+DEBUG:root:Stored hash: scrypt:32768:8:1$oUAgJKIDKAIknpqR$8cec14db2bdae0abacb6bea2bc0437f5cc5112491c02a61fe42efb05d81af10904a1c8df15debc82d64252db5e5bff
+DEBUG:root:Input password: 123
+DEBUG:root:Password check result: False
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 13:02:35] "GET /create_test_user HTTP/1.1" 200 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.17.0.2:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 820-041-894
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 13:08:00] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 13:08:00] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 13:08:00] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 13:08:00] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+DEBUG:root:Setting password for user TestAG
+DEBUG:root:Generated hash: scrypt:32768:8:1$baRY8V5dRMc9D7ps$03c8d148e8fb2e384fba5fc87e729fe0523ed6a5a1cc3afe468f410967dba7db7d5bc03c62889b441efcba91da7fdc930307196abf67a4d87325f328f2973955
+DEBUG:root:Hash stored in database: scrypt:32768:8:1$baRY8V5dRMc9D7ps$03c8d148e8fb2e384fba5fc87e729fe0523ed6a5a1cc3afe468f410967dba7db7d5bc03c62889b441efcba91da7fdc
+DEBUG:root:Hash in user object: scrypt:32768:8:1$baRY8V5dRMc9D7ps$03c8d148e8fb2e384fba5fc87e729fe0523ed6a5a1cc3afe468f410967dba7db7d5bc03c62889b441efcba91da7fdc
+DEBUG:root:Checking password for user TestAG
+DEBUG:root:Stored hash: scrypt:32768:8:1$baRY8V5dRMc9D7ps$03c8d148e8fb2e384fba5fc87e729fe0523ed6a5a1cc3afe468f410967dba7db7d5bc03c62889b441efcba91da7fdc
+DEBUG:root:Input password: 123
+DEBUG:root:New hash generated from input: scrypt:32768:8:1$h95aQRKgDIwpx7CU$30def1f56ba4173ba9b9fd61fbbb8753e00081839b578c1e5afc76d76fa53d95dc9f31ef8cc4153b992d564de3347e32615500da97a29d77e469cc187f88e129
+DEBUG:root:Password check result: False
+DEBUG:root:Manual hash comparison result: False
+DEBUG:root:Checking password for user TestAG
+DEBUG:root:Stored hash: scrypt:32768:8:1$baRY8V5dRMc9D7ps$03c8d148e8fb2e384fba5fc87e729fe0523ed6a5a1cc3afe468f410967dba7db7d5bc03c62889b441efcba91da7fdc
+DEBUG:root:Input password: 123
+DEBUG:root:New hash generated from input: scrypt:32768:8:1$GqftIg4PfYSWKLP6$ac4385d56fa3bc5e126899045dba5733e479d73928ba673377f89917ce38aa20a37a33ee7e856e549765dfb0e991dda165ebd413f62e90bfdda4be84af19abd4
+DEBUG:root:Password check result: False
+DEBUG:root:Manual hash comparison result: False
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 13:08:04] "GET /create_test_user HTTP/1.1" 200 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.17.0.2:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 110-270-731
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 13:13:42] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 13:13:42] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 13:13:42] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 13:13:42] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+DEBUG:root:Setting password for user TestAH
+DEBUG:root:Generated hash: scrypt:32768:8:1$O16eAzWGVDClgsCS$6fff696a52e6866a322149bbc589a1c628bc267f94e4ddc2002d5c6b745d5d212a31dface030c9aa8d13b21fce81bafd319a267b3ea0f091dfe6063b32ff3796
+DEBUG:root:Hash stored in database: scrypt:32768:8:1$O16eAzWGVDClgsCS$6fff696a52e6866a322149bbc589a1c628bc267f94e4ddc2002d5c6b745d5d212a31dface030c9aa8d13b21fce81bafd319a267b3ea0f091dfe6063b32ff3796
+DEBUG:root:Hash in user object: scrypt:32768:8:1$O16eAzWGVDClgsCS$6fff696a52e6866a322149bbc589a1c628bc267f94e4ddc2002d5c6b745d5d212a31dface030c9aa8d13b21fce81bafd319a267b3ea0f091dfe6063b32ff3796
+DEBUG:root:Checking password for user TestAH
+DEBUG:root:Stored hash: scrypt:32768:8:1$O16eAzWGVDClgsCS$6fff696a52e6866a322149bbc589a1c628bc267f94e4ddc2002d5c6b745d5d212a31dface030c9aa8d13b21fce81bafd319a267b3ea0f091dfe6063b32ff3796
+DEBUG:root:Input password: 123
+DEBUG:root:Password check result: True
+DEBUG:root:Checking password for user TestAH
+DEBUG:root:Stored hash: scrypt:32768:8:1$O16eAzWGVDClgsCS$6fff696a52e6866a322149bbc589a1c628bc267f94e4ddc2002d5c6b745d5d212a31dface030c9aa8d13b21fce81bafd319a267b3ea0f091dfe6063b32ff3796
+DEBUG:root:Input password: 123
+DEBUG:root:Password check result: True
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 13:13:45] "GET /create_test_user HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 13:14:55] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 13:14:55] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 13:14:55] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 13:14:55] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+DEBUG:root:Login route accessed
+DEBUG:root:Request method: GET
+DEBUG:root:Form data: ImmutableMultiDict([])
+DEBUG:root:GET request received
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 13:14:57] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 13:14:57] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 13:14:57] "[36mGET /static/js/bootstrap.bundle.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 13:14:59] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 13:14:59] "[36mGET /static/js/bootstrap.bundle.min.js.map HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 13:14:59] "[36mGET /static/css/bootstrap.min.css.map HTTP/1.1[0m" 304 -
+DEBUG:root:Login route accessed
+DEBUG:root:Request method: POST
+DEBUG:root:Form data: ImmutableMultiDict([('csrf_token', 'IjExOTNlNjRkMTEyNDBkZDI2N2Q2MGIwY2I3NmRmZmY3YWZhYWQ2YmMi.Zq9-0Q.cT9a-gtPfd9HE9iXUjn_2N5JvJ8'), ('username', 'ido'), ('password', '123'), ('submit', 'Login')])
+DEBUG:root:POST request received
+DEBUG:root:Form validated: True
+DEBUG:root:Form errors: {}
+DEBUG:root:Form validated successfully
+DEBUG:root:User found: <User ido>
+DEBUG:root:Checking password for user ido
+DEBUG:root:Stored hash: scrypt:32768:8:1$8mdR1joCw3UmZ1y3$efbda17d36618dd6055b1cdf85b131da17b1d8bd0b9ee3136d39b5e77dfaf89d0f78d636449ab752370211bf889896
+DEBUG:root:Input password: 123
+DEBUG:root:Password check result: False
+DEBUG:root:Invalid username or password
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 13:15:04] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 13:15:04] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 13:15:04] "[36mGET /static/js/bootstrap.bundle.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 13:15:04] "[36mGET /static/css/bootstrap.min.css.map HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 13:15:04] "[36mGET /static/js/bootstrap.bundle.min.js.map HTTP/1.1[0m" 304 -
+DEBUG:root:Login route accessed
+DEBUG:root:Request method: POST
+DEBUG:root:Form data: ImmutableMultiDict([('csrf_token', 'IjExOTNlNjRkMTEyNDBkZDI2N2Q2MGIwY2I3NmRmZmY3YWZhYWQ2YmMi.Zq9-2A.aJPO4Sg4DA3frhZXlkH8JygtW0I'), ('username', 'ido'), ('password', '123'), ('submit', 'Login')])
+DEBUG:root:POST request received
+DEBUG:root:Form validated: True
+DEBUG:root:Form errors: {}
+DEBUG:root:Form validated successfully
+DEBUG:root:User found: <User ido>
+DEBUG:root:Checking password for user ido
+DEBUG:root:Stored hash: scrypt:32768:8:1$8mdR1joCw3UmZ1y3$efbda17d36618dd6055b1cdf85b131da17b1d8bd0b9ee3136d39b5e77dfaf89d0f78d636449ab752370211bf889896
+DEBUG:root:Input password: 123
+DEBUG:root:Password check result: False
+DEBUG:root:Invalid username or password
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 13:15:07] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 13:15:07] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 13:15:07] "[36mGET /static/js/bootstrap.bundle.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 13:15:07] "[36mGET /static/css/bootstrap.min.css.map HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 13:15:07] "[36mGET /static/js/bootstrap.bundle.min.js.map HTTP/1.1[0m" 304 -
+DEBUG:root:Login route accessed
+DEBUG:root:Request method: POST
+DEBUG:root:Form data: ImmutableMultiDict([('csrf_token', 'IjExOTNlNjRkMTEyNDBkZDI2N2Q2MGIwY2I3NmRmZmY3YWZhYWQ2YmMi.Zq9-2w.WxbLtmM9rOi5I8H5WK_TCJZkVbQ'), ('username', 'ido'), ('password', 'asd'), ('submit', 'Login')])
+DEBUG:root:POST request received
+DEBUG:root:Form validated: True
+DEBUG:root:Form errors: {}
+DEBUG:root:Form validated successfully
+DEBUG:root:User found: <User ido>
+DEBUG:root:Checking password for user ido
+DEBUG:root:Stored hash: scrypt:32768:8:1$8mdR1joCw3UmZ1y3$efbda17d36618dd6055b1cdf85b131da17b1d8bd0b9ee3136d39b5e77dfaf89d0f78d636449ab752370211bf889896
+DEBUG:root:Input password: asd
+DEBUG:root:Password check result: False
+DEBUG:root:Invalid username or password
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 13:15:08] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 13:15:08] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 13:15:08] "[36mGET /static/js/bootstrap.bundle.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 13:15:08] "[36mGET /static/css/bootstrap.min.css.map HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 13:15:08] "[36mGET /static/js/bootstrap.bundle.min.js.map HTTP/1.1[0m" 304 -
+DEBUG:root:Login route accessed
+DEBUG:root:Request method: POST
+DEBUG:root:Form data: ImmutableMultiDict([('csrf_token', 'IjExOTNlNjRkMTEyNDBkZDI2N2Q2MGIwY2I3NmRmZmY3YWZhYWQ2YmMi.Zq9-3A.CeZ4GTwBVZt0i8BOkSb6LKwD5Ks'), ('username', 'ido'), ('password', 'asd'), ('submit', 'Login')])
+DEBUG:root:POST request received
+DEBUG:root:Form validated: True
+DEBUG:root:Form errors: {}
+DEBUG:root:Form validated successfully
+DEBUG:root:User found: <User ido>
+DEBUG:root:Checking password for user ido
+DEBUG:root:Stored hash: scrypt:32768:8:1$8mdR1joCw3UmZ1y3$efbda17d36618dd6055b1cdf85b131da17b1d8bd0b9ee3136d39b5e77dfaf89d0f78d636449ab752370211bf889896
+DEBUG:root:Input password: asd
+DEBUG:root:Password check result: False
+DEBUG:root:Invalid username or password
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 13:15:09] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 13:15:09] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 13:15:09] "[36mGET /static/js/bootstrap.bundle.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 13:15:09] "[36mGET /static/css/bootstrap.min.css.map HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 13:15:09] "[36mGET /static/js/bootstrap.bundle.min.js.map HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 13:15:13] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 13:15:13] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 13:15:13] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 13:15:13] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 13:15:13] "[36mGET /static/css/bootstrap.min.css.map HTTP/1.1[0m" 304 -

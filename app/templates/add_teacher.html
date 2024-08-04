@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Teacher</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Add Teacher</h1>
+        <form method="POST" action="{{ url_for('add_teacher') }}">
+            {{ form.hidden_tag() }}
+            <div class="mb-3">
+                <label for="name" class="form-label">Name:</label>
+                {{ form.name(class="form-control") }}
+            </div>
+            <div class="mb-3">
+                <label for="manager_id" class="form-label">Manager ID:</label>
+                {{ form.manager_id(class="form-control") }}
+            </div>
+            {{ form.submit(class="btn btn-primary") }}
+        </form>
+    </div>
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+</body>
+</html>

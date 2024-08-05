@@ -7,5 +7,32 @@ pipeline {
                 git branch: 'main', credentialsId: 'SCEProject', url: 'https://github.com/BS-PMC-2024/BS-PMC-2024-Team32.git'
             }
         }
+        stage('Build Docker Image') {
+            steps {
+                echo 'Building Docker image...'
+                sh 'docker build -t mathgenius .'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Running tests...'
+                // Assuming tests are run inside the built Docker image
+                sh 'docker run --rm mathgenius pytest --verbose --junit-xml=test-reports/results.xml sources/test_calc.py'
+            }
+            post {
+                always {
+                    junit 'test-reports/results.xml'
+                }
+            }
+        }
+    }
+    post {
+        success {
+            echo 'Pipeline completed successfully!'
+        }
+        failure {
+            echo 'Pipeline failed.'
+        }
+    }
 }
-}
+

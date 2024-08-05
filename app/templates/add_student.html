@@ -7,16 +7,63 @@
 </head>
 <body>
     <div class="container">
-        <h1>Add Student</h1>
+        <h1 class="mt-5 mb-4">Add Student</h1>
         <form method="POST" action="{{ url_for('add_student') }}">
             {{ form.hidden_tag() }}
             <div class="mb-3">
-                <label for="name" class="form-label">Name:</label>
-                {{ form.name(class="form-control") }}
+                <label for="username" class="form-label">Username:</label>
+                {{ form.username(class="form-control") }}
+                {% if form.username.errors %}
+                    <div class="alert alert-danger mt-2">
+                        {% for error in form.username.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% endif %}
             </div>
             <div class="mb-3">
-                <label for="teacher_id" class="form-label">Teacher ID:</label>
+                <label for="password" class="form-label">Password:</label>
+                {{ form.password(class="form-control") }}
+                {% if form.password.errors %}
+                    <div class="alert alert-danger mt-2">
+                        {% for error in form.password.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="mb-3">
+                <label for="confirm_password" class="form-label">Confirm Password:</label>
+                {{ form.confirm_password(class="form-control") }}
+                {% if form.confirm_password.errors %}
+                    <div class="alert alert-danger mt-2">
+                        {% for error in form.confirm_password.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="mb-3">
+                <label for="name" class="form-label">Name:</label>
+                {{ form.name(class="form-control") }}
+                {% if form.name.errors %}
+                    <div class="alert alert-danger mt-2">
+                        {% for error in form.name.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="mb-3">
+                <label for="teacher_id" class="form-label">Teacher:</label>
                 {{ form.teacher_id(class="form-control") }}
+                {% if form.teacher_id.errors %}
+                    <div class="alert alert-danger mt-2">
+                        {% for error in form.teacher_id.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% endif %}
             </div>
             {{ form.submit(class="btn btn-primary") }}
         </form>

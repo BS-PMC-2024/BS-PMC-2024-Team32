@@ -201,3 +201,569 @@ INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 13:15:13] "[36mGET /static/css/bootst
 INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 13:15:13] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
 INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 13:15:13] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
 INFO:werkzeug:172.17.0.1 - - [04/Aug/2024 13:15:13] "[36mGET /static/css/bootstrap.min.css.map HTTP/1.1[0m" 304 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.17.0.2:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 503-222-684
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:52:49] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:52:49] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:52:49] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:52:49] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:52:49] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:52:49] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:52:49] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:52:49] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:52:50] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:52:50] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:52:50] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:52:50] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:52:50] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:52:50] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:52:50] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:52:50] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:52:50] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:52:50] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:52:50] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:52:50] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:52:56] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:52:56] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:52:56] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:52:56] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:52:59] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:52:59] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:52:59] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:52:59] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:56:16] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:56:16] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:56:16] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:56:16] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:56:16] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:56:16] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:56:16] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:56:16] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:56:22] "[32mGET /logout HTTP/1.1[0m" 302 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:56:22] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:56:22] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:56:22] "[36mGET /static/js/bootstrap.bundle.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:56:23] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:56:23] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:56:23] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:56:23] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:56:23] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:56:25] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:56:26] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:56:26] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:56:26] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:56:26] "[32mGET /logout HTTP/1.1[0m" 302 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:56:26] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:56:26] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:56:26] "[36mGET /static/js/bootstrap.bundle.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:56:28] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:56:28] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:56:28] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:56:28] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:56:28] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:56:30] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:56:30] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:56:30] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:56:30] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:56:32] "[32mGET /logout HTTP/1.1[0m" 302 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:56:32] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:56:32] "[36mGET /static/js/bootstrap.bundle.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:56:32] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:56:33] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:56:33] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:56:33] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:56:33] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:56:33] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:56:35] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:56:35] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:56:35] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:56:35] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:56:59] "[32mGET /logout HTTP/1.1[0m" 302 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:56:59] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:56:59] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:56:59] "[36mGET /static/js/bootstrap.bundle.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:57:00] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:57:00] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:57:00] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:57:00] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:57:00] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:57:04] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:57:04] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:57:04] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:57:04] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:57:06] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:57:06] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:57:06] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:57:06] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:57:10] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:57:10] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:57:10] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:57:10] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:57:16] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:57:16] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:57:16] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:57:16] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:57:17] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:57:17] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:57:17] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:57:17] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:57:17] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:57:17] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:57:17] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:57:17] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:57:18] "[32mGET /logout HTTP/1.1[0m" 302 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:57:18] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:57:18] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:57:18] "[36mGET /static/js/bootstrap.bundle.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:57:22] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:57:22] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:57:22] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:57:22] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:57:22] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:57:52] "[32mGET /logout HTTP/1.1[0m" 302 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:57:52] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:57:52] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:57:52] "[36mGET /static/js/bootstrap.bundle.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:57:59] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:57:59] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:57:59] "[36mGET /static/js/bootstrap.bundle.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:58:11] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:58:11] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:58:11] "[36mGET /static/js/bootstrap.bundle.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:58:14] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:58:16] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:58:16] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:58:16] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 12:58:16] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in '/app/app/models.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 503-222-684
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:01:34] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:01:34] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:01:34] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:01:34] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:01:35] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:01:35] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:01:35] "[36mGET /static/js/bootstrap.bundle.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:01:37] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:01:37] "GET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:01:37] "GET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:01:37] "GET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:01:37] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:01:43] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:01:43] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:01:43] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:01:43] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in '/app/app/routes.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 503-222-684
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:12:30] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:12:30] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:12:30] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:12:30] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:12:31] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:12:31] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:12:31] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:12:31] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:12:32] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:12:32] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:12:32] "[36mGET /static/js/bootstrap.bundle.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:12:33] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:12:33] "[36mGET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:12:33] "[36mGET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:12:33] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:12:33] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:12:35] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:12:35] "[36mGET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:12:35] "[36mGET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:12:35] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:12:35] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:12:37] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:12:37] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:12:37] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:12:37] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in '/app/app/migrations_manager.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 503-222-684
+INFO:werkzeug: * Detected change in '/app/migrations_manager.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 503-222-684
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:27:46] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:27:48] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:27:49] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/app/app/models.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 503-222-684
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:41:29] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:41:30] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:41:30] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:41:30] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:41:31] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:41:31] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:41:31] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/app/app/__init__.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 503-222-684
+INFO:werkzeug: * Detected change in '/app/migrations/env.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 503-222-684
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:44:02] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:44:02] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:44:03] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:44:03] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:44:03] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:44:03] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:44:04] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:44:04] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:44:04] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:44:04] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:44:05] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:44:05] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:44:05] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:44:05] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:44:08] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:44:08] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:44:08] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:44:08] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:44:10] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:44:10] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:44:10] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:44:10] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.17.0.2:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 125-325-856
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:46:12] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:46:12] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:46:12] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:46:12] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:46:12] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:46:12] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:46:12] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:46:12] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:46:12] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:46:13] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:46:13] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:46:13] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:46:16] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:46:17] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:46:18] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:46:18] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:46:18] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:46:18] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:46:19] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:46:19] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:46:19] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:46:19] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:46:19] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:46:20] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:46:20] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:46:20] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/app/app/routes.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 125-325-856
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:47:28] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:47:28] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:47:29] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:47:29] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:47:29] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:47:29] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:47:29] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:47:30] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:47:30] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:47:30] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:47:30] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:47:32] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/app/app/models.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 125-325-856
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.17.0.2:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 137-572-539
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:50:16] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:50:16] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:50:17] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:50:17] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:50:17] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:50:17] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:50:17] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:50:17] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:50:18] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:50:18] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:50:18] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:50:18] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:50:34] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:50:34] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:50:34] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:50:34] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:50:38] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/app/app/__init__.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 137-572-539
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.17.0.2:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 120-654-600
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:54:03] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:54:03] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:54:03] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:54:03] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 13:54:04] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/app/app/__init__.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 120-654-600
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.17.0.2:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 142-825-455
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:00:55] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:00:55] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:00:55] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:00:55] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:00:55] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:00:56] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:00:56] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:00:56] "GET /test_db HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:00:57] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:00:57] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:00:57] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:00:57] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:04:53] "[35m[1mGET /create_test_user HTTP/1.1[0m" 500 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:04:55] "[33mGET /create_manager HTTP/1.1[0m" 404 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:04:56] "[33mGET /create_manager HTTP/1.1[0m" 404 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:05:04] "[33mGET /create_manager HTTP/1.1[0m" 404 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:05:10] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:05:10] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:05:10] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:05:10] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:09:00] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:09:00] "[36mGET /static/js/bootstrap.bundle.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:09:00] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:09:05] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:09:05] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:09:05] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:09:05] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:09:05] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:09:09] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:09:09] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:09:09] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:09:09] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:09:10] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:09:10] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:09:10] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:09:10] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:09:11] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:09:11] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:09:12] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:09:12] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:09:12] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:09:12] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:09:12] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:09:12] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in '/app/app/routes.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.17.0.2:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 822-629-569
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:21:52] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:21:52] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:21:52] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:21:52] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:21:53] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:21:53] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:21:53] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:21:53] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:21:55] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:21:55] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:21:55] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:21:55] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:21:56] "GET /add_teacher HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:21:57] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:21:57] "[36mGET /static/js/bootstrap.bundle.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:00] "[35m[1mGET /add_teacher HTTP/1.1[0m" 500 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:01] "GET /add_teacher?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:01] "GET /add_teacher?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:01] "GET /add_teacher?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:01] "[36mGET /add_teacher?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:01] "[35m[1mGET /add_teacher HTTP/1.1[0m" 500 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:01] "[36mGET /add_teacher?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:01] "[36mGET /add_teacher?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:01] "[36mGET /add_teacher?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:01] "[36mGET /add_teacher?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:02] "[35m[1mGET /add_teacher HTTP/1.1[0m" 500 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:02] "[36mGET /add_teacher?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:02] "[36mGET /add_teacher?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:02] "[36mGET /add_teacher?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:02] "[36mGET /add_teacher?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:02] "[35m[1mGET /add_teacher HTTP/1.1[0m" 500 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:02] "[36mGET /add_teacher?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:02] "[36mGET /add_teacher?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:02] "[36mGET /add_teacher?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:02] "[36mGET /add_teacher?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:02] "[35m[1mGET /add_teacher HTTP/1.1[0m" 500 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:02] "[36mGET /add_teacher?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:02] "[36mGET /add_teacher?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:02] "[36mGET /add_teacher?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:02] "[36mGET /add_teacher?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:05] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:05] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:05] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:05] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:05] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:05] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:05] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:05] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:06] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:06] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:06] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:06] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:10] "[35m[1mGET /add_teacher HTTP/1.1[0m" 500 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:10] "[36mGET /add_teacher?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:10] "[36mGET /add_teacher?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:10] "[36mGET /add_teacher?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:18] "[35m[1mGET /add_teacher HTTP/1.1[0m" 500 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:18] "[36mGET /add_teacher?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:18] "[36mGET /add_teacher?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:18] "[36mGET /add_teacher?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:19] "[36mGET /add_teacher?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:19] "[35m[1mGET /add_teacher HTTP/1.1[0m" 500 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:19] "[36mGET /add_teacher?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:19] "[36mGET /add_teacher?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:19] "[36mGET /add_teacher?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:19] "[35m[1mGET /add_teacher HTTP/1.1[0m" 500 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:19] "[36mGET /add_teacher?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:19] "[36mGET /add_teacher?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:19] "[36mGET /add_teacher?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:19] "[36mGET /add_teacher?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:19] "[35m[1mGET /add_teacher HTTP/1.1[0m" 500 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:19] "[36mGET /add_teacher?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:19] "[36mGET /add_teacher?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:19] "[36mGET /add_teacher?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:19] "[36mGET /add_teacher?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:19] "[35m[1mGET /add_teacher HTTP/1.1[0m" 500 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:19] "[36mGET /add_teacher?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:19] "[36mGET /add_teacher?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:19] "[36mGET /add_teacher?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:19] "[36mGET /add_teacher?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:28] "GET /add_teacher HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:28] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:28] "GET /add_teacher HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:28] "[36mGET /static/js/bootstrap.bundle.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:28] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:28] "[36mGET /static/js/bootstrap.bundle.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:29] "GET /add_teacher HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:29] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 14:24:29] "[36mGET /static/js/bootstrap.bundle.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:09:10] "GET /add_teacher HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:09:14] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:09:14] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:09:14] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:09:14] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:09:15] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:09:15] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:09:15] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:09:15] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:09:16] "GET /add_teacher HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:09:23] "GET /add_student HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:09:24] "GET /add_student HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:11:41] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:11:41] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:11:41] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:11:41] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:11:42] "GET /add_teacher HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:11:42] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:11:42] "[36mGET /static/js/bootstrap.bundle.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:11:43] "GET /add_teacher HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:11:43] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:11:43] "[36mGET /static/js/bootstrap.bundle.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:11:48] "GET /add_student HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:11:48] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:11:48] "[36mGET /static/js/bootstrap.bundle.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:11:54] "GET /add_teacher HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:11:54] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:11:54] "[36mGET /static/js/bootstrap.bundle.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:11:59] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:11:59] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:11:59] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:11:59] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:12:01] "GET /add_teacher HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:12:01] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:12:01] "[36mGET /static/js/bootstrap.bundle.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:13:25] "[32mPOST /add_teacher HTTP/1.1[0m" 302 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:13:25] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:13:25] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:13:25] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:13:25] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:13:30] "GET /add_student HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:13:30] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:13:30] "[36mGET /static/js/bootstrap.bundle.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:13:51] "[32mPOST /add_student HTTP/1.1[0m" 302 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:13:51] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:13:51] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:13:51] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:13:51] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:14:02] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:14:02] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:14:02] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:14:02] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:14:03] "[32mGET /logout HTTP/1.1[0m" 302 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:14:03] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:14:04] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:14:04] "[36mGET /static/js/bootstrap.bundle.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:14:10] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:14:10] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:14:11] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:14:11] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 15:14:11] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 16:57:59] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 16:58:00] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 16:58:00] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 16:58:00] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in '/app/app/routes.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 822-629-569
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 17:00:40] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 17:00:40] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 17:00:40] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 17:00:40] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 17:00:40] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -

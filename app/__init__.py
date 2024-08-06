@@ -9,7 +9,10 @@ import logging
 logging.basicConfig(filename='app.log', level=logging.DEBUG)
 db_host = os.environ.get('DB_HOST', 'localhost')
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+pymysql://root:your_password@{db_host}/mathgenius'
+if os.environ.get('FLASK_ENV') == 'testing':
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///:memory:'
+else:
+    app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+pymysql://root:your_password@{db_host}/mathgenius'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['WTF_CSRF_ENABLED'] = True
 app.config['SECRET_KEY'] = 'heythere'

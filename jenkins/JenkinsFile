@@ -16,11 +16,16 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Running tests...'
-                // Assuming tests are run inside the built Docker image
-                sh 'docker run --rm mathgenius pytest --verbose --junit-xml=test-reports/results.xml tests/'
+                sh '''
+                    docker run --rm \
+                    -e FLASK_ENV=testing \
+                    mathgenius \
+                    pytest --verbose --junit-xml=test-reports/results.xml tests/
+                '''
             }
             post {
                 always {
+                    sh 'docker cp $(docker ps -lq):/app/test-reports/results.xml test-reports/results.xml || true'
                     junit 'test-reports/results.xml'
                 }
             }

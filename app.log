@@ -787,3 +787,4 @@ INFO:werkzeug: * Debugger PIN: 822-629-569
 INFO:werkzeug: * Detected change in '/app/tests/test_user_system.py', reloading
 WARNING:werkzeug: * Debugger is active!
 INFO:werkzeug: * Debugger PIN: 822-629-569
+INFO:werkzeug: * Detected change in '/app/app/__init__.py', reloading

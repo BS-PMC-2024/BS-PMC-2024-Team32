@@ -17,7 +17,7 @@ pipeline {
             steps {
                 echo 'Running tests...'
                 // Assuming tests are run inside the built Docker image
-                sh 'docker run --rm mathgenius pytest --verbose --junit-xml=test-reports/results.xml sources/test_calc.py'
+                sh 'docker run --rm mathgenius pytest --verbose --junit-xml=test-reports/results.xml tests/'
             }
             post {
                 always {

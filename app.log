@@ -767,3 +767,23 @@ INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 17:00:40] "GET /dashboard HTTP/1.1" 20
 INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 17:00:40] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
 INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 17:00:40] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
 INFO:werkzeug:172.17.0.1 - - [05/Aug/2024 17:00:40] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 822-629-569
+INFO:werkzeug: * Detected change in '/app/tests/test_user_system.py', reloading
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 822-629-569
+INFO:werkzeug: * Detected change in '/app/tests/test_user_system.py', reloading
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 822-629-569
+INFO:werkzeug: * Detected change in '/app/tests/test_user_system.py', reloading
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 822-629-569
+INFO:werkzeug: * Detected change in '/app/tests/test_user_system.py', reloading
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 822-629-569
+INFO:werkzeug: * Detected change in '/app/tests/test_user_system.py', reloading
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 822-629-569
+INFO:werkzeug: * Detected change in '/app/tests/test_user_system.py', reloading
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 822-629-569

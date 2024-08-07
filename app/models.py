@@ -2,6 +2,8 @@
 from app import db
 from werkzeug.security import generate_password_hash, check_password_hash
 import logging
+from datetime import datetime, timezone 
+
 
 class User(db.Model):
     __tablename__ = 'users'
@@ -24,6 +26,15 @@ class User(db.Model):
 
     def __repr__(self):
         return f'<User {self.username}>'
+
+class Admin(User):
+    __tablename__ = 'admins'
+    
+    id = db.Column(db.Integer, db.ForeignKey('users.id'), primary_key=True)
+
+    __mapper_args__ = {
+        'polymorphic_identity': 'admin',
+    }
 
 class Manager(User):
     __tablename__ = 'managers'
@@ -63,3 +74,25 @@ class Student(User):
 
     def __repr__(self):
         return f'<Student {self.name}>'
+    
+class SupportStaff(User):
+    __tablename__ = 'support_staff'
+    
+    id = db.Column(db.Integer, db.ForeignKey('users.id'), primary_key=True)
+
+    __mapper_args__ = {
+        'polymorphic_identity': 'support',
+    }
+
+class SupportTicket(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    user_type = db.Column(db.String(20), nullable=False)
+    issue_category = db.Column(db.String(50), nullable=False)
+    description = db.Column(db.Text, nullable=False)
+    status = db.Column(db.String(20), default='Open')
+    created_at = db.Column(db.DateTime, default=lambda: datetime.now(timezone.utc))
+
+    user = db.relationship('User', backref=db.backref('support_tickets', lazy=True))
+
+

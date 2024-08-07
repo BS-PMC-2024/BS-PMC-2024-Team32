@@ -1,9 +1,10 @@
 # routes.py
-from flask import render_template, request, redirect, url_for, flash, session, abort,jsonify
+from flask import current_app,render_template, request, redirect, url_for, flash, session, abort,jsonify
 from functools import wraps
 from app import app, db
-from app.models import User, Teacher, Student, Manager 
-from app.forms import LoginForm, AddTeacherForm, AddStudentForm, AddManagerForm
+from app.models import User, Teacher, Student, Manager, SupportTicket,SupportStaff
+from app.forms import LoginForm, AddTeacherForm, AddStudentForm, AddManagerForm,ContactForm,SupportTicketForm,AddSupportStaffForm,CloseTicketForm
+from app.email import send_contact_email
 import logging
 from sqlalchemy import text
 
@@ -25,6 +26,14 @@ def login():
             flash('Invalid username or password', 'danger')
     return render_template('login.html', form=form)
 
+def admin_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if 'user_type' not in session or session['user_type'] != 'admin':
+            abort(403)  # Forbidden
+        return f(*args, **kwargs)
+    return decorated_function
+
 
 def login_required(f):
     @wraps(f)
@@ -43,6 +52,14 @@ def manager_required(f):
         return f(*args, **kwargs)
     return decorated_function
 
+def support_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if 'user_type' not in session or session['user_type'] != 'support':
+            abort(403)  # Forbidden
+        return f(*args, **kwargs)
+    return decorated_function
+
 def teacher_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
@@ -51,10 +68,26 @@ def teacher_required(f):
         return f(*args, **kwargs)
     return decorated_function
 
+def teacher_or_student_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if 'user_type' not in session or session['user_type'] not in ['teacher', 'student']:
+            abort(403)  # Forbidden
+        return f(*args, **kwargs)
+    return decorated_function
+
+def student_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if 'user_type' not in session or session['user_type'] != 'student':
+            abort(403)  # Forbidden
+        return f(*args, **kwargs)
+    return decorated_function
+
 
 @app.route('/add_manager', methods=['GET', 'POST'])
 @login_required
-@manager_required
+@admin_required
 def add_manager():
     form = AddManagerForm()
     if form.validate_on_submit():
@@ -66,16 +99,28 @@ def add_manager():
         return redirect(url_for('dashboard'))
     return render_template('add_manager.html', form=form)
 
+@app.route('/add_support_staff', methods=['GET', 'POST'])
+@login_required
+@admin_required
+def add_support_staff():
+    form = AddSupportStaffForm()
+    if form.validate_on_submit():
+        support_staff = SupportStaff(username=form.username.data, user_type='support')
+        support_staff.set_password(form.password.data)
+        db.session.add(support_staff)
+        db.session.commit()
+        flash('New support staff added successfully', 'success')
+        return redirect(url_for('dashboard'))
+    return render_template('add_support_staff.html', form=form)
+
 @app.route('/dashboard')
 @login_required
 def dashboard():
     user_type = session.get('user_type')
-    if user_type == 'manager':
-        return render_template('dashboard.html', user_type='manager')
-    elif user_type == 'teacher':
-        return render_template('dashboard.html', user_type='teacher')
-    elif user_type == 'student':
-        return render_template('dashboard.html', user_type='student')
+    valid_user_types = ['admin','support','manager', 'teacher', 'student']
+    
+    if user_type in valid_user_types:
+        return render_template('dashboard.html', user_type=user_type)
     else:
         flash('Invalid user type', 'danger')
         return redirect(url_for('home'))
@@ -135,6 +180,22 @@ def my_students():
         flash('Teacher not found', 'danger')
         return redirect(url_for('dashboard'))
 
+@app.route('/my_courses')
+@login_required
+@student_required
+def my_courses():
+    # Fetch the current student
+    student = Student.query.get(session['user_id'])
+    
+    # Placeholder for courses (we'll use a list of dictionaries for now)
+    courses = [
+        {"id": 1, "name": "Introduction to Algebra", "teacher": "Dr. Smith"},
+        {"id": 2, "name": "Geometry Basics", "teacher": "Prof. Johnson"},
+        {"id": 3, "name": "Advanced Calculus", "teacher": "Dr. Williams"}
+    ]
+    
+    return render_template('my_courses.html', student=student, courses=courses)
+
 @app.route('/logout')
 @login_required
 def logout():
@@ -163,37 +224,98 @@ def test_db():
     except Exception as e:
         return f"Failed to connect to the database or query tables. Error: {str(e)}"
 
-from flask import jsonify
-from sqlalchemy import text
 
-from flask import jsonify
-from sqlalchemy import text
 
-@app.route('/create_test_user')
-def create_test_user():
-    user = User(username='TestAHH', user_type='manager')
-    plain_password = '123'
-    user.set_password(plain_password)
-    db.session.add(user)
-    db.session.commit()
-    
-    # Fetch the user directly from the database
-    with db.engine.connect() as connection:
-        result = connection.execute(text("SELECT password_hash FROM user WHERE username = 'TestAHH'"))
-        db_hash = result.fetchone()[0]
-    
-    check_result = user.check_password(plain_password)
-    
-    # Fetch the user again and perform another password check
-    fetched_user = User.query.filter_by(username='TestAHH').first()
-    second_check = fetched_user.check_password(plain_password)
-    
-    return jsonify({
-        "test_user_created": True,
-        "first_password_check": check_result,
-        "second_password_check": second_check,
-        "hashes_match": db_hash == user.password_hash,
-        "user_object_hash": user.password_hash,
-        "database_hash": db_hash,
-        "hash_length": len(db_hash)
-    })
+@app.route('/support', methods=['GET', 'POST'])
+@login_required
+@teacher_or_student_required
+def support():
+    form = SupportTicketForm()
+    if form.validate_on_submit():
+        user = User.query.get(session['user_id'])
+        ticket = SupportTicket(
+            user_id=user.id,
+            user_type=user.user_type,
+            issue_category=form.issue_category.data,
+            description=form.description.data
+        )
+        db.session.add(ticket)
+        db.session.commit()
+        flash('Your support ticket has been submitted successfully!', 'success')
+        return redirect(url_for('dashboard'))
+
+    return render_template('support.html', form=form)
+
+@app.route('/support_tickets', methods=['GET', 'POST'])
+@login_required
+@support_required
+def support_tickets():
+    form = CloseTicketForm()
+
+    # Log form data and validation status
+    if request.method == 'POST':
+        current_app.logger.debug(f"Form data submitted: {request.form}")
+        current_app.logger.debug(f"Form validation: {form.validate_on_submit()}")
+
+    # Handle form submission to close tickets
+    if form.validate_on_submit():
+        ticket_id = form.ticket_id.data
+        current_app.logger.debug(f"Attempting to close ticket with ID: {ticket_id}")
+        ticket = SupportTicket.query.get(ticket_id)
+        
+        if ticket and ticket.status == 'Open':
+            ticket.status = 'Closed'
+            try:
+                db.session.commit()
+                flash('Ticket closed successfully!', 'success')
+            except Exception as e:
+                db.session.rollback()
+                current_app.logger.error(f"Error committing to the database: {e}")
+                flash('Failed to update ticket status in the database.', 'danger')
+        else:
+            flash('Ticket could not be closed.', 'danger')
+
+        return redirect(url_for('support_tickets'))
+
+    # Query for open and closed tickets
+    open_tickets = SupportTicket.query.filter_by(status='Open').count()
+    closed_tickets = SupportTicket.query.filter_by(status='Closed').count()
+    total_tickets = open_tickets + closed_tickets
+
+    open_percentage = (open_tickets / total_tickets) * 100 if total_tickets > 0 else 0
+    closed_percentage = (closed_tickets / total_tickets) * 100 if total_tickets > 0 else 0
+
+    # Query for all open tickets with user details
+    tickets = db.session.query(SupportTicket, User.username).join(User).filter(SupportTicket.status == 'Open').all()
+
+    return render_template('support_tickets.html', 
+                           open_tickets=open_tickets,
+                           closed_tickets=closed_tickets,
+                           open_percentage=open_percentage,
+                           closed_percentage=closed_percentage,
+                           tickets=tickets,
+                           form=form)
+
+@app.route('/contact', methods=['GET', 'POST'])
+def contact():
+    form = ContactForm()
+    if form.validate_on_submit():
+        # Create a dictionary with form data
+        inquiry_data = {
+            'name': form.name.data,
+            'email': form.email.data,
+            'phone': form.phone.data,
+            'organization': form.organization.data,
+            'role': form.role.data,
+            'message': form.message.data,
+            'preferred_contact': form.preferred_contact.data,
+            'best_time': form.best_time.data
+        }
+        
+        # Send email
+        send_contact_email(inquiry_data)
+        
+        flash('Your message has been sent. We will contact you shortly!', 'success')
+        return redirect(url_for('home'))
+    return render_template('contact.html', form=form)
+

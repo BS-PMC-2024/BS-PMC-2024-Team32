@@ -1,9 +1,19 @@
 {% extends "base.html" %}
+
 {% block content %}
 <div class="container mt-5">
     <h2>{{ user_type|capitalize }} Dashboard</h2>
     
-    {% if user_type == 'manager' %}
+    {% if user_type == 'admin' %}
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <a href="{{ url_for('add_manager') }}" class="btn btn-primary btn-lg btn-block">Add Manager</a>
+            </div>
+            <div class="col-md-6">
+                <a href="{{ url_for('add_support_staff') }}" class="btn btn-success btn-lg btn-block">Add Support Staff</a>
+            </div>
+        </div>
+    {% elif user_type == 'manager' %}
         <div class="row mt-4">
             <div class="col-md-6">
                 <a href="{{ url_for('add_teacher') }}" class="btn btn-primary btn-lg btn-block">Add Teacher</a>
@@ -13,18 +23,24 @@
             </div>
         </div>
     {% elif user_type == 'teacher' %}
-    <div class="row mt-4">
-        <div class="col-md-12">
-            <a href="{{ url_for('my_students') }}" class="btn btn-info btn-lg btn-block">View My Students</a>
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <a href="{{ url_for('my_students') }}" class="btn btn-info btn-lg btn-block">View My Students</a>
+            </div>
+            <!-- Add more teacher-specific options here -->
         </div>
-        <!-- Add more teacher-specific options here -->
-    </div>
     {% elif user_type == 'student' %}
         <div class="row mt-4">
             <div class="col-md-12">
-                <a href="#" class="btn btn-warning btn-lg btn-block">View My Courses</a>
+                <a href="{{ url_for('my_courses') }}" class="btn btn-warning btn-lg btn-block">View My Courses</a>
             </div>
             <!-- Add more student-specific options here -->
+        </div>
+    {% elif user_type == 'support' %}
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <a href="{{ url_for('support_tickets') }}" class="btn btn-info btn-lg btn-block">View Support Ticket Progress</a>
+            </div>
         </div>
     {% endif %}
 </div>

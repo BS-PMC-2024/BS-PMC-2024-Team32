@@ -1,6 +1,6 @@
 pipeline {
     agent any
-
+    
     stages {
         stage('Build Docker Image') {
             steps {
@@ -25,6 +25,15 @@ pipeline {
                 }
             }
         }
+        stage('Clean Up') {
+            steps {
+                echo 'Cleaning up Docker images...'
+                sh '''
+                    docker rmi mathgenius || true
+                    docker image prune -f
+                '''
+            }
+        }
     }
     post {
         success {
@@ -35,4 +44,3 @@ pipeline {
         }
     }
 }
-

@@ -6,7 +6,7 @@ from flask_migrate import Migrate
 from flask_mail import Mail
 import os
 import logging
-
+import subprocess
 
 logging.basicConfig(filename='app.log', level=logging.DEBUG)
 db_host = os.environ.get('DB_HOST', 'localhost')
@@ -34,3 +34,17 @@ app.config['CONTACT_EMAIL'] = 'mathgeniussce@gmail.com' # Email to receive inqui
 mail = Mail(app)
 
 from app import routes, models
+
+
+def build_tailwind():
+    subprocess.run([
+        "tailwindcss",
+        "-i", "app/static/css/tailwind.css",
+        "-o", "app/static/css/tailwind.output.css",
+        "--minify"
+    ])
+
+# Call this function before running the app
+build_tailwind()
+
+# Rest of your Flask app initialization...

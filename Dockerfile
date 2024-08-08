@@ -13,6 +13,12 @@ RUN apt-get update && apt-get install -y default-mysql-client
 # Install the dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Copy the rest of the application code
+COPY . .
+
+# Build Tailwind CSS
+RUN python -c "from app import build_tailwind; build_tailwind()"
+
 #connecting to sqldb
 ENV DB_HOST=host.docker.internal
 

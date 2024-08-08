@@ -1,47 +1,52 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container mt-5">
-    <h2>{{ user_type|capitalize }} Dashboard</h2>
+<div class="container mx-auto px-4 py-8 max-w-3xl">
+    <h2 class="text-3xl font-bold mb-8 text-center text-gray-800">{{ user_type|capitalize }} Dashboard</h2>
     
-    {% if user_type == 'admin' %}
-        <div class="row mt-4">
-            <div class="col-md-6">
-                <a href="{{ url_for('add_manager') }}" class="btn btn-primary btn-lg btn-block">Add Manager</a>
+    <div class="bg-white shadow-lg rounded-lg p-6">
+        {% if user_type == 'manager' %}
+            <div class="space-y-4">
+                <h2 class="text-lg text-gray-600 mb-6">Welcome, {{ user.username }}</h2>
+                <a href="{{ url_for('add_teacher') }}" class="block w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg text-center transition duration-300 ease-in-out">
+                    Add Teacher
+                </a>
+                <a href="{{ url_for('add_student') }}" class="block w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-lg text-center transition duration-300 ease-in-out">
+                    Add Student
+                </a>
             </div>
-            <div class="col-md-6">
-                <a href="{{ url_for('add_support_staff') }}" class="btn btn-success btn-lg btn-block">Add Support Staff</a>
+        {% elif user_type == 'admin' %}
+            <div class="space-y-4">
+                <h2 class="text-lg text-gray-600 mb-6">Welcome, {{ user.username }}</h2>
+                <a href="{{ url_for('add_manager') }}" class="block w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg text-center transition duration-300 ease-in-out">
+                    Add Manager
+                </a>
+                <a href="{{ url_for('add_support_staff') }}" class="block w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-lg text-center transition duration-300 ease-in-out">
+                    Add Support Staff
+                </a>
             </div>
-        </div>
-    {% elif user_type == 'manager' %}
-        <div class="row mt-4">
-            <div class="col-md-6">
-                <a href="{{ url_for('add_teacher') }}" class="btn btn-primary btn-lg btn-block">Add Teacher</a>
+        {% elif user_type == 'teacher' %}
+            <div class="space-y-4">
+                <h2 class="text-lg text-gray-600 mb-6">Welcome, {{ user.name }}</h2>
+                <a href="{{ url_for('my_students') }}" class="block w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg text-center transition duration-300 ease-in-out">
+                    View My Students
+                </a>
             </div>
-            <div class="col-md-6">
-                <a href="{{ url_for('add_student') }}" class="btn btn-success btn-lg btn-block">Add Student</a>
+        {% elif user_type == 'student' %}
+            <div class="space-y-4">
+                <h2 class="text-lg text-gray-600 mb-6">Welcome, {{ user.name }}</h2>
+                <a href="{{ url_for('my_courses') }}" class="block w-full bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-3 px-4 rounded-lg text-center transition duration-300 ease-in-out">
+                    View My Courses
+                </a>
             </div>
-        </div>
-    {% elif user_type == 'teacher' %}
-        <div class="row mt-4">
-            <div class="col-md-12">
-                <a href="{{ url_for('my_students') }}" class="btn btn-info btn-lg btn-block">View My Students</a>
+        {% elif user_type == 'support' %}
+            <div class="space-y-4">
+                <h2 class="text-lg text-gray-600 mb-6">Welcome, {{ user.username }}</h2>
+                <a href="{{ url_for('support_tickets') }}" class="block w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg text-center transition duration-300 ease-in-out">
+                    View Support Ticket Progress
+                </a>
             </div>
-            <!-- Add more teacher-specific options here -->
-        </div>
-    {% elif user_type == 'student' %}
-        <div class="row mt-4">
-            <div class="col-md-12">
-                <a href="{{ url_for('my_courses') }}" class="btn btn-warning btn-lg btn-block">View My Courses</a>
-            </div>
-            <!-- Add more student-specific options here -->
-        </div>
-    {% elif user_type == 'support' %}
-        <div class="row mt-4">
-            <div class="col-md-12">
-                <a href="{{ url_for('support_tickets') }}" class="btn btn-info btn-lg btn-block">View Support Ticket Progress</a>
-            </div>
-        </div>
-    {% endif %}
+        {% endif %}
+    </div>
 </div>
 {% endblock %}

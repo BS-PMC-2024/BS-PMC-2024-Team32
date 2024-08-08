@@ -2,7 +2,7 @@
 from flask import current_app,render_template, request, redirect, url_for, flash, session, abort,jsonify
 from functools import wraps
 from app import app, db
-from app.models import User, Teacher, Student, Manager, SupportTicket,SupportStaff
+from app.models import User, Teacher, Student, Manager, SupportTicket,SupportStaff,Admin
 from app.forms import LoginForm, AddTeacherForm, AddStudentForm, AddManagerForm,ContactForm,SupportTicketForm,AddSupportStaffForm,CloseTicketForm
 from app.email import send_contact_email
 import logging
@@ -117,12 +117,24 @@ def add_support_staff():
 @login_required
 def dashboard():
     user_type = session.get('user_type')
-    valid_user_types = ['admin','support','manager', 'teacher', 'student']
-    
-    if user_type in valid_user_types:
-        return render_template('dashboard.html', user_type=user_type)
+    valid_user_types = ['admin', 'support', 'manager', 'teacher', 'student']
+    user = None
+
+    if user_type == 'manager':
+        user = Manager.query.get(session['user_id'])
+    elif user_type == 'admin':
+        user = Admin.query.get(session['user_id'])
+    elif user_type == 'teacher':
+        user = Teacher.query.get(session['user_id'])
+    elif user_type == 'student':
+        user = Student.query.get(session['user_id'])
+    elif user_type == 'support':
+        user = SupportStaff.query.get(session['user_id'])
+
+    if user_type in valid_user_types and user:
+        return render_template('dashboard.html', user_type=user_type, user=user)
     else:
-        flash('Invalid user type', 'danger')
+        flash('Invalid user type or user not found', 'danger')
         return redirect(url_for('home'))
     
 
@@ -246,38 +258,28 @@ def support():
 
     return render_template('support.html', form=form)
 
-@app.route('/support_tickets', methods=['GET', 'POST'])
+
+@app.route('/close_ticket/<int:ticket_id>', methods=['POST'])
+@login_required
+@support_required
+def close_ticket(ticket_id):
+    ticket = SupportTicket.query.get(ticket_id)
+    if ticket and ticket.status == 'Open':
+        ticket.status = 'Closed'
+        try:
+            db.session.commit()
+            return jsonify({'success': True, 'message': 'Ticket closed successfully!'})
+        except Exception as e:
+            db.session.rollback()
+            current_app.logger.error(f"Error closing ticket: {e}")
+            return jsonify({'success': False, 'message': 'Failed to close the ticket. Please try again.'}), 500
+    else:
+        return jsonify({'success': False, 'message': 'Ticket could not be closed. It may not exist or is already closed.'}), 400
+
+@app.route('/support_tickets')
 @login_required
 @support_required
 def support_tickets():
-    form = CloseTicketForm()
-
-    # Log form data and validation status
-    if request.method == 'POST':
-        current_app.logger.debug(f"Form data submitted: {request.form}")
-        current_app.logger.debug(f"Form validation: {form.validate_on_submit()}")
-
-    # Handle form submission to close tickets
-    if form.validate_on_submit():
-        ticket_id = form.ticket_id.data
-        current_app.logger.debug(f"Attempting to close ticket with ID: {ticket_id}")
-        ticket = SupportTicket.query.get(ticket_id)
-        
-        if ticket and ticket.status == 'Open':
-            ticket.status = 'Closed'
-            try:
-                db.session.commit()
-                flash('Ticket closed successfully!', 'success')
-            except Exception as e:
-                db.session.rollback()
-                current_app.logger.error(f"Error committing to the database: {e}")
-                flash('Failed to update ticket status in the database.', 'danger')
-        else:
-            flash('Ticket could not be closed.', 'danger')
-
-        return redirect(url_for('support_tickets'))
-
-    # Query for open and closed tickets
     open_tickets = SupportTicket.query.filter_by(status='Open').count()
     closed_tickets = SupportTicket.query.filter_by(status='Closed').count()
     total_tickets = open_tickets + closed_tickets
@@ -285,7 +287,6 @@ def support_tickets():
     open_percentage = (open_tickets / total_tickets) * 100 if total_tickets > 0 else 0
     closed_percentage = (closed_tickets / total_tickets) * 100 if total_tickets > 0 else 0
 
-    # Query for all open tickets with user details
     tickets = db.session.query(SupportTicket, User.username).join(User).filter(SupportTicket.status == 'Open').all()
 
     return render_template('support_tickets.html', 
@@ -293,8 +294,12 @@ def support_tickets():
                            closed_tickets=closed_tickets,
                            open_percentage=open_percentage,
                            closed_percentage=closed_percentage,
-                           tickets=tickets,
-                           form=form)
+                           tickets=tickets)
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():

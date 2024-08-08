@@ -1,43 +1,46 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container mt-5">
-    <h1>Contact Us</h1>
-    <form method="POST" novalidate>
-        {{ form.hidden_tag() }}
-        <div class="mb-3">
-            {{ form.name.label(class="form-label") }}
-            {{ form.name(class="form-control") }}
-        </div>
-        <div class="mb-3">
-            {{ form.email.label(class="form-label") }}
-            {{ form.email(class="form-control") }}
-        </div>
-        <div class="mb-3">
-            {{ form.phone.label(class="form-label") }}
-            {{ form.phone(class="form-control") }}
-        </div>
-        <div class="mb-3">
-            {{ form.organization.label(class="form-label") }}
-            {{ form.organization(class="form-control") }}
-        </div>
-        <div class="mb-3">
-            {{ form.role.label(class="form-label") }}
-            {{ form.role(class="form-control") }}
-        </div>
-        <div class="mb-3">
-            {{ form.message.label(class="form-label") }}
-            {{ form.message(class="form-control", rows=5) }}
-        </div>
-        <div class="mb-3">
-            {{ form.preferred_contact.label(class="form-label") }}
-            {{ form.preferred_contact(class="form-control") }}
-        </div>
-        <div class="mb-3">
-            {{ form.best_time.label(class="form-label") }}
-            {{ form.best_time(class="form-control") }}
-        </div>
-        {{ form.submit(class="btn btn-primary") }}
-    </form>
+<h1 class="text-xl font-bold text-center mb-6">Contact Us</h1>
+<div class="min-h-screen flex items-center justify-center bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+        <form method="POST" novalidate class="space-y-6">
+            {{ form.hidden_tag() }}
+            <div>
+                {{ form.name.label(class="block text-sm font-medium text-gray-700") }}
+                {{ form.name(class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm") }}
+            </div>
+            <div>
+                {{ form.email.label(class="block text-sm font-medium text-gray-700") }}
+                {{ form.email(class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm") }}
+            </div>
+            <div>
+                {{ form.phone.label(class="block text-sm font-medium text-gray-700") }}
+                {{ form.phone(class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm") }}
+            </div>
+            <div>
+                {{ form.organization.label(class="block text-sm font-medium text-gray-700") }}
+                {{ form.organization(class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm") }}
+            </div>
+            <div>
+                {{ form.role.label(class="block text-sm font-medium text-gray-700") }}
+                {{ form.role(class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm") }}
+            </div>
+            <div>
+                {{ form.message.label(class="block text-sm font-medium text-gray-700") }}                                                                                   
+                {{ form.message(class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm resize-none", rows=5) }}
+            </div>
+            <div>
+                {{ form.preferred_contact.label(class="block text-sm font-medium text-gray-700") }}
+                {{ form.preferred_contact(class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm") }}
+            </div>
+            <div>
+                {{ form.best_time.label(class="block text-sm font-medium text-gray-700") }}
+                {{ form.best_time(class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm") }}
+            </div>
+            <div>
+                {{ form.submit(class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-150 ease-in-out") }}
+            </div>
+        </form>
+    </div>
 </div>
 {% endblock %}

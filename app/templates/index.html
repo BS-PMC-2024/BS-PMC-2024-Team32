@@ -1,28 +1,34 @@
-<!-- templates/index.html -->
 {% extends "base.html" %}
-
 {% block title %}Welcome to MathGenius{% endblock %}
-
 {% block content %}
-<main>
-    <section class="hero">
-        <h1>Welcome to MathGenius</h1>
-        <p>Learn math in a fun and interactive way!</p>
-        <button onclick="exploreCourses()">Explore Courses</button>
-    </section>
-    <section class="features">
-        <div class="feature">
-            <h2>Interactive Lessons</h2>
-            <p>Engage with interactive lessons and quizzes.</p>
-        </div>
-        <div class="feature">
-            <h2>Expert Tutors</h2>
-            <p>Learn from the best tutors in the industry.</p>
-        </div>
-        <div class="feature">
-            <h2>Progress Tracking</h2>
-            <p>Track your progress and improve continuously.</p>
-        </div>
-    </section>
-</main>
+<div class="hero-image h-96 flex items-center justify-center text-white mb-12">
+    <div class="text-center">
+        <h1 class="text-5xl font-bold mb-4">Welcome to MathGenius</h1>
+        <p class="text-xl mb-8">Learn math in a fun and interactive way!</p>
+        <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition duration-300">Explore Courses</a>
+    </div>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div class="bg-white p-6 rounded-lg shadow-md">
+        <i class="fas fa-laptop-code text-4xl text-blue-600 mb-4"></i>
+        <h2 class="text-2xl font-semibold mb-2">Interactive Lessons</h2>
+        <p>Engage with interactive lessons and quizzes to enhance your learning experience.</p>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow-md">
+        <i class="fas fa-chalkboard-teacher text-4xl text-blue-600 mb-4"></i>
+        <h2 class="text-2xl font-semibold mb-2">Expert Tutors</h2>
+        <p>Learn from the best tutors in the industry with personalized guidance.</p>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow-md">
+        <i class="fas fa-chart-line text-4xl text-blue-600 mb-4"></i>
+        <h2 class="text-2xl font-semibold mb-2">Progress Tracking</h2>
+        <p>Track your progress and improve continuously with detailed analytics.</p>
+    </div>
+</div>
+
+<div class="mt-12 text-center">
+    <h2 class="text-3xl font-bold mb-4">Ready to start your math journey?</h2>
+    <a href="{{ url_for('login') }}" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full transition duration-300">Get Started Now</a>
+</div>
 {% endblock %}

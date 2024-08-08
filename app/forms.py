@@ -65,7 +65,7 @@ class SupportTicketForm(FlaskForm):
 
 
 class CloseTicketForm(FlaskForm):
-    ticket_id = HiddenField('Ticket ID')
+    id = HiddenField('Ticket ID', validators=[DataRequired()])
     submit = SubmitField('Close Ticket')
 
 class ContactForm(FlaskForm):

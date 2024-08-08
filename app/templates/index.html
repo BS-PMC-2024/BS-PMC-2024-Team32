@@ -1,34 +1,157 @@
-{% extends "base.html" %}
-{% block title %}Welcome to MathGenius{% endblock %}
-{% block content %}
-<div class="hero-image h-96 flex items-center justify-center text-white mb-12">
-    <div class="text-center">
-        <h1 class="text-5xl font-bold mb-4">Welcome to MathGenius</h1>
-        <p class="text-xl mb-8">Learn math in a fun and interactive way!</p>
-        <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition duration-300">Explore Courses</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}MathGenius{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .carousel-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel-item {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+        .carousel-item video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .carousel-btn:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .carousel-btn.prev { left: 10px; }
+        .carousel-btn.next { right: 10px; }
+        .carousel-indicators {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+        .indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+        }
+        .indicator.active {
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    {% extends "base.html" %}
+    {% block content %}
+    <div class="carousel-container">
+        <div class="carousel">
+            <div class="carousel-item">
+                <video muted>
+                    <source src="{{ url_for('static', filename='videos/1.mp4') }}" type="video/mp4">
+                </video>
+            </div>
+            <div class="carousel-item">
+                <video muted>
+                    <source src="{{ url_for('static', filename='videos/2.mp4') }}" type="video/mp4">
+                </video>
+            </div>
+            <div class="carousel-item">
+                <video muted>
+                    <source src="{{ url_for('static', filename='videos/3.mp4') }}" type="video/mp4">
+                </video>
+            </div>
+            <div class="carousel-item">
+                <video muted>
+                    <source src="{{ url_for('static', filename='videos/4.mp4') }}" type="video/mp4">
+                </video>
+            </div>
+        </div>
+        <button class="carousel-btn prev"><i class="fas fa-chevron-left"></i></button>
+        <button class="carousel-btn next"><i class="fas fa-chevron-right"></i></button>
+        <div class="carousel-indicators">
+            <span class="indicator active"></span>
+            <span class="indicator"></span>
+            <span class="indicator"></span>
+            <span class="indicator"></span>
+        </div>
     </div>
-</div>
 
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-    <div class="bg-white p-6 rounded-lg shadow-md">
-        <i class="fas fa-laptop-code text-4xl text-blue-600 mb-4"></i>
-        <h2 class="text-2xl font-semibold mb-2">Interactive Lessons</h2>
-        <p>Engage with interactive lessons and quizzes to enhance your learning experience.</p>
-    </div>
-    <div class="bg-white p-6 rounded-lg shadow-md">
-        <i class="fas fa-chalkboard-teacher text-4xl text-blue-600 mb-4"></i>
-        <h2 class="text-2xl font-semibold mb-2">Expert Tutors</h2>
-        <p>Learn from the best tutors in the industry with personalized guidance.</p>
-    </div>
-    <div class="bg-white p-6 rounded-lg shadow-md">
-        <i class="fas fa-chart-line text-4xl text-blue-600 mb-4"></i>
-        <h2 class="text-2xl font-semibold mb-2">Progress Tracking</h2>
-        <p>Track your progress and improve continuously with detailed analytics.</p>
-    </div>
-</div>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const carousel = document.querySelector('.carousel');
+        const items = carousel.querySelectorAll('.carousel-item');
+        const prevBtn = document.querySelector('.carousel-btn.prev');
+        const nextBtn = document.querySelector('.carousel-btn.next');
+        const indicators = document.querySelectorAll('.indicator');
+        let currentIndex = 0;
 
-<div class="mt-12 text-center">
-    <h2 class="text-3xl font-bold mb-4">Ready to start your math journey?</h2>
-    <a href="{{ url_for('login') }}" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full transition duration-300">Get Started Now</a>
-</div>
-{% endblock %}
+        function updateCarousel() {
+            carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+            indicators.forEach((ind, index) => {
+                ind.classList.toggle('active', index === currentIndex);
+            });
+
+            // Pause all videos
+            items.forEach(item => {
+                const video = item.querySelector('video');
+                video.pause();
+                video.currentTime = 0;
+            });
+
+            // Play the current video
+            const currentVideo = items[currentIndex].querySelector('video');
+            currentVideo.play();
+
+            // Add an event listener to stop the video when it ends
+            currentVideo.onended = function() {
+                this.pause();
+            };
+        }
+
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + items.length) % items.length;
+            updateCarousel();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % items.length;
+            updateCarousel();
+        });
+
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                currentIndex = index;
+                updateCarousel();
+            });
+        });
+
+        // Initialize the first video
+        updateCarousel();
+    });
+    </script>
+    {% endblock %}
+</body>
+</html>

@@ -10,7 +10,12 @@ from sqlalchemy import text
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    if 'visited' not in session:
+        session['visited'] = True
+        show_loader = True
+    else:
+        show_loader = False
+    return render_template('index.html', show_loader=show_loader)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -23,7 +28,7 @@ def login():
             flash('Login successful!', 'success')
             return redirect(url_for('dashboard'))
         else:
-            flash('Invalid username or password', 'danger')
+            form.username.errors.append('Invalid username or password')
     return render_template('login.html', form=form)
 
 def admin_required(f):

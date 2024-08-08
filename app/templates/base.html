@@ -7,76 +7,171 @@
     <link href="{{ url_for('static', filename='css/tailwind.output.css') }}" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
-        .hero-image {
-            background-image: url('static/images/math_hero.jpg');
-            background-size: cover;
-            background-position: center;
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+    
+        @keyframes fadeInScale {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.1);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes floatAndFade {
+            0%, 100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(-15px);
+                opacity: 0.8;
+            }
+        }
+        
+        .float {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .hover-grow {
+            transition: all 0.3s ease;
+        }
+        
+        .hover-grow:hover {
+            transform: scale(1.05);
+        }
+    
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .nav-item {
+            margin-right: -5px; /* Increased spacing between navigation items */
+        }
+        
+        .nav-link i {
+            margin-right: 8px; /* Increased spacing between icon and text */
+        }
+        
+        .nav-link {
+            display: flex;
+            align-items: center;
+            padding: 8px 12px; /* Enhanced padding for better tap targets and spacing */
+        }
+        
+        .animate-fadeInScale {
+            animation: fadeInScale 0.5s ease-in-out forwards, floatAndFade 3s ease-in-out infinite;
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        #loader {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .text-6xl {
+            font-size: 6rem; /* Adjust the size as needed */
+        }
+        
+        .text-blue-600 {
+            color: #2563eb; /* Ensure the color is visible */
+        }
+        main {
+            background: #f0f4f8; /* Match body background */
+            min-height: calc(100vh - 60px - 200px); /* Adjust based on your header and footer heights */
         }
     </style>
+    
 </head>
-<body class="flex flex-col min-h-screen bg-gray-100">
-    <header class="bg-blue-600 text-white shadow-md">
+<body class="min-h-screen">
+    {% if show_loader %}
+    <div id="loader" class="fixed inset-0 flex items-center justify-center bg-white z-50" style="display: flex;">
+        <div class="text-center">
+            <div class="flex justify-center items-center text-6xl font-bold text-blue-600 animate-fadeInScale">
+                <i class="fas fa-brain mr-2"></i>MathGenius
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    <header class="w-full top-0 z-40 glass-effect">
         <nav class="container mx-auto px-6 py-3">
             <div class="flex items-center justify-between">
-                <div class="text-2xl font-bold">
-                    <a href="{{ url_for('home') }}" class="hover:text-blue-200 transition duration-300">MathGenius</a>
+                <div class="text-3xl font-bold text-blue-600 hover-grow">
+                    <a href="{{ url_for('home') }}" class="hover:text-blue-800 transition duration-300 flex items-center float">
+                        <i class="fas fa-brain mr-2"></i>MathGenius
+                    </a>
                 </div>
-                <div class="hidden md:flex space-x-4">
-                    <a href="{{ url_for('home') }}" class="hover:text-blue-200 transition duration-300">Home</a>
+                <div class="hidden md:flex items-center space-x-8"> <!-- Increased space-x-8 -->
+                    <a href="{{ url_for('home') }}" class="nav-item nav-link text-gray-700 hover:text-blue-600 transition duration-300 hover-grow"><i class="fas fa-home"></i> Home</a>
                     <div class="relative group">
-                        <a href="#" class="hover:text-blue-200 transition duration-300">Courses</a>
-                        <div class="absolute hidden group-hover:block bg-white text-gray-800 shadow-md mt-2 py-2 rounded-md">
-                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Algebra</a>
-                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Geometry</a>
-                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Calculus</a>
+                        <a href="#" class="nav-item nav-link text-gray-700 hover:text-blue-600 transition duration-300 hover-grow"><i class="fas fa-book"></i> Courses</a>
+                        <div class="absolute hidden group-hover:block bg-white text-gray-800 shadow-lg mt-2 py-2 rounded-md w-48 glass-effect">
+                            <a href="#" class="block px-4 py-2 hover:bg-blue-100 transition duration-300"><i class="fas fa-calculator mr-1"></i> Algebra</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-blue-100 transition duration-300"><i class="fas fa-shapes mr-1"></i> Geometry</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-blue-100 transition duration-300"><i class="fas fa-chart-line mr-1"></i> Calculus</a>
                         </div>
                     </div>
-                    <a href="{{ url_for('about') }}" class="hover:text-blue-200 transition duration-300">About</a>
+                    <a href="{{ url_for('about') }}" class="nav-item nav-link text-gray-700 hover:text-blue-600 transition duration-300 hover-grow"><i class="fas fa-info-circle"></i> About</a>
                     {% if 'user_id' not in session %}
-                        <a href="{{ url_for('contact') }}" class="hover:text-blue-200 transition duration-300">Contact</a>
-                    {% endif %}
-                    {% if 'user_id' in session %}
-                        <a href="{{ url_for('dashboard') }}" class="hover:text-blue-200 transition duration-300">Dashboard</a>
-                        {% if session.get('user_type') in ['teacher', 'student'] %}
-                            <a href="{{ url_for('support') }}" class="hover:text-blue-200 transition duration-300">Support</a>
-                        {% endif %}
-                        <a href="{{ url_for('logout') }}" class="hover:text-blue-200 transition duration-300">Logout</a>
+                        <a href="{{ url_for('contact') }}" class="nav-item nav-link text-gray-700 hover:text-blue-600 transition duration-300 hover-grow"><i class="fas fa-envelope"></i> Contact</a>
+                        <a href="{{ url_for('login') }}" class="bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-600 transition duration-300 hover-grow"><i class="fas fa-sign-in-alt"></i> Login</a>
                     {% else %}
-                        <a href="{{ url_for('login') }}" class="hover:text-blue-200 transition duration-300">Login</a>
+                        <a href="{{ url_for('dashboard') }}" class="nav-item nav-link text-gray-700 hover:text-blue-600 transition duration-300 hover-grow"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                        {% if session.get('user_type') in ['teacher', 'student'] %}
+                            <a href="{{ url_for('support') }}" class="nav-item nav-link text-gray-700 hover:text-blue-600 transition duration-300 hover-grow"><i class="fas fa-headset"></i> Support</a>
+                        {% endif %}
+                        <a href="{{ url_for('logout') }}" class="bg-red-500 text-white px-6 py-2 rounded-full hover:bg-red-600 transition duration-300 hover-grow"><i class="fas fa-sign-out-alt"></i> Logout</a>
                     {% endif %}
                 </div>
                 <div class="md:hidden">
-                    <button id="menu-toggle" class="text-white focus:outline-none">
-                        <i class="fas fa-bars"></i>
+                    <button id="menu-toggle" class="text-gray-700 focus:outline-none hover-grow">
+                        <i class="fas fa-bars text-2xl"></i>
                     </button>
                 </div>
             </div>
         </nav>
-        <div id="mobile-menu" class="hidden md:hidden">
-            <a href="{{ url_for('home') }}" class="block py-2 px-4 text-sm hover:bg-blue-700">Home</a>
-            <a href="#" class="block py-2 px-4 text-sm hover:bg-blue-700">Courses</a>
-            <a href="#" class="block py-2 px-4 text-sm hover:bg-blue-700">About</a>
+        <div id="mobile-menu" class="hidden glass-effect">
+            <a href="{{ url_for('home') }}" class="block py-2 px-4 text-gray-700 hover:bg-blue-100 transition duration-300"><i class="fas fa-home mr-1"></i> Home</a>
+            <a href="#" class="block py-2 px-4 text-gray-700 hover:bg-blue-100 transition duration-300"><i class="fas fa-book mr-1"></i> Courses</a>
+            <a href="{{ url_for('about') }}" class="block py-2 px-4 text-gray-700 hover:bg-blue-100 transition duration-300"><i class="fas fa-info-circle mr-1"></i> About</a>
             {% if 'user_id' not in session %}
-                <a href="{{ url_for('contact') }}" class="block py-2 px-4 text-sm hover:bg-blue-700">Contact</a>
-            {% endif %}
-            {% if 'user_id' in session %}
-                <a href="{{ url_for('dashboard') }}" class="block py-2 px-4 text-sm hover:bg-blue-700">Dashboard</a>
-                {% if session.get('user_type') in ['teacher', 'student'] %}
-                    <a href="{{ url_for('support') }}" class="block py-2 px-4 text-sm hover:bg-blue-700">Support</a>
-                {% endif %}
-                <a href="{{ url_for('logout') }}" class="block py-2 px-4 text-sm hover:bg-blue-700">Logout</a>
+                <a href="{{ url_for('contact') }}" class="block py-2 px-4 text-gray-700 hover:bg-blue-100 transition duration-300"><i class="fas fa-envelope mr-1"></i> Contact</a>
+                <a href="{{ url_for('login') }}" class="block py-2 px-4 text-gray-700 hover:bg-blue-100 transition duration-300"><i class="fas fa-sign-in-alt mr-1"></i> Login</a>
             {% else %}
-                <a href="{{ url_for('login') }}" class="block py-2 px-4 text-sm hover:bg-blue-700">Login</a>
+                <a href="{{ url_for('dashboard') }}" class="block py-2 px-4 text-gray-700 hover:bg-blue-100 transition duration-300"><i class="fas fa-tachometer-alt mr-1"></i> Dashboard</a>
+                {% if session.get('user_type') in ['teacher', 'student'] %}
+                    <a href="{{ url_for('support') }}" class="block py-2 px-4 text-gray-700 hover:bg-blue-100 transition duration-300"><i class="fas fa-headset mr-1"></i> Support</a>
+                {% endif %}
+                <a href="{{ url_for('logout') }}" class="block py-2 px-4 text-gray-700 hover:bg-blue-100 transition duration-300"><i class="fas fa-sign-out-alt mr-1"></i> Logout</a>
             {% endif %}
         </div>
     </header>
 
-    <main class="flex-grow">
+    <main>
         <div class="container mx-auto px-6 py-8">
             {% with messages = get_flashed_messages(with_categories=true) %}
                 {% if messages %}
                     {% for category, message in messages %}
-                        <div class="bg-{{ category }}-100 border border-{{ category }}-400 text-{{ category }}-700 px-4 py-3 rounded relative mb-4" role="alert">
+                        <div class="bg-{{ category }}-100 border border-{{ category }}-400 text-{{ category }}-700 px-4 py-3 rounded relative mb-4 glass-effect" role="alert">
                             <span class="block sm:inline">{{ message }}</span>
                         </div>
                     {% endfor %}
@@ -87,38 +182,66 @@
         </div>
     </main>
 
-    <footer class="bg-gray-800 text-white">
-        <div class="container mx-auto px-6 py-4">
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6">
             <div class="flex flex-wrap justify-between items-center">
-                <div class="w-full md:w-1/3 text-center md:text-left">
-                    <h3 class="text-lg font-semibold">MathGenius</h3>
-                    <p class="mt-2 text-sm">Empowering students through interactive math learning.</p>
+                <div class="w-full md:w-1/3 text-center md:text-left mb-6 md:mb-0">
+                    <h3 class="text-2xl font-bold mb-2 text-shadow">MathGenius</h3>
+                    <p class="text-gray-400">Empowering students through interactive math learning.</p>
                 </div>
-                <div class="w-full md:w-1/3 mt-4 md:mt-0">
-                    <h4 class="text-lg font-semibold mb-2">Quick Links</h4>
-                    <ul class="text-sm">
-                        <li><a href="#" class="hover:text-blue-300">Privacy Policy</a></li>
-                        <li><a href="#" class="hover:text-blue-300">Terms of Service</a></li>
-                        <li><a href="#" class="hover:text-blue-300">FAQ</a></li>
+                <div class="w-full md:w-1/3 mb-6 md:mb-0">
+                    <h4 class="text-xl font-semibold mb-4 text-shadow">Quick Links</h4>
+                    <ul class="text-gray-400">
+                        <li class="mb-2 hover-grow"><a href="#" class="hover:text-blue-300 transition duration-300"><i class="fas fa-chevron-right mr-1"></i>Privacy Policy</a></li>
+                        <li class="mb-2 hover-grow"><a href="#" class="hover:text-blue-300 transition duration-300"><i class="fas fa-chevron-right mr-1"></i>Terms of Service</a></li>
+                        <li class="hover-grow"><a href="#" class="hover:text-blue-300 transition duration-300"><i class="fas fa-chevron-right mr-1"></i>FAQ</a></li>
                     </ul>
                 </div>
-                <div class="w-full md:w-1/3 mt-4 md:mt-0 text-center md:text-right">
-                    <h4 class="text-lg font-semibold mb-2">Connect with us</h4>
+                <div class="w-full md:w-1/3 text-center md:text-right">
+                    <h4 class="text-xl font-semibold mb-4 text-shadow">Connect with us</h4>
                     <div class="flex justify-center md:justify-end space-x-4">
-                        <a href="#" class="text-2xl hover:text-blue-300"><i class="fab fa-facebook"></i></a>
-                        <a href="#" class="text-2xl hover:text-blue-300"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="text-2xl hover:text-blue-300"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-2xl hover:text-blue-300"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="text-2xl hover:text-blue-300 transition duration-300 hover-grow float"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-2xl hover:text-blue-300 transition duration-300 hover-grow float"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-2xl hover:text-blue-300 transition duration-300 hover-grow float"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-2xl hover:text-blue-300 transition duration-300 hover-grow float"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
             </div>
-            <div class="mt-8 text-center text-sm">
+            <div class="mt-8 text-center text-gray-400 text-sm">
                 <p>&copy; 2024 MathGenius. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var loader = document.getElementById('loader');
+            if (loader) {
+                var startTime = new Date().getTime();
+                var minDisplayTime = 2000; // Minimum time to display loader (in milliseconds)
+    
+                window.addEventListener('load', function() {
+                    var currentTime = new Date().getTime();
+                    var elapsedTime = currentTime - startTime;
+                    var remainingTime = minDisplayTime - elapsedTime;
+    
+                    if (remainingTime > 0) {
+                        setTimeout(hideLoader, remainingTime);
+                    } else {
+                        hideLoader();
+                    }
+                });
+    
+                function hideLoader() {
+                    loader.style.opacity = '0';
+                    setTimeout(function() {
+                        loader.style.display = 'none';
+                        loader.remove(); // Remove the loader from the DOM
+                    }, 500);
+                }
+            }
+        });
+    
         document.getElementById('menu-toggle').addEventListener('click', function() {
             document.getElementById('mobile-menu').classList.toggle('hidden');
         });

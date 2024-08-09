@@ -1,46 +1,94 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1 class="text-xl font-bold text-center mb-6">Contact Us</h1>
-<div class="min-h-screen flex items-center justify-center bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
-        <form method="POST" novalidate class="space-y-6">
-            {{ form.hidden_tag() }}
-            <div>
-                {{ form.name.label(class="block text-sm font-medium text-gray-700") }}
-                {{ form.name(class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm") }}
-            </div>
-            <div>
-                {{ form.email.label(class="block text-sm font-medium text-gray-700") }}
-                {{ form.email(class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm") }}
-            </div>
-            <div>
-                {{ form.phone.label(class="block text-sm font-medium text-gray-700") }}
-                {{ form.phone(class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm") }}
-            </div>
-            <div>
-                {{ form.organization.label(class="block text-sm font-medium text-gray-700") }}
-                {{ form.organization(class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm") }}
-            </div>
-            <div>
-                {{ form.role.label(class="block text-sm font-medium text-gray-700") }}
-                {{ form.role(class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm") }}
-            </div>
-            <div>
-                {{ form.message.label(class="block text-sm font-medium text-gray-700") }}                                                                                   
-                {{ form.message(class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm resize-none", rows=5) }}
-            </div>
-            <div>
-                {{ form.preferred_contact.label(class="block text-sm font-medium text-gray-700") }}
-                {{ form.preferred_contact(class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm") }}
-            </div>
-            <div>
-                {{ form.best_time.label(class="block text-sm font-medium text-gray-700") }}
-                {{ form.best_time(class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm") }}
-            </div>
-            <div>
-                {{ form.submit(class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-150 ease-in-out") }}
-            </div>
-        </form>
-    </div>
+<h1 class="text-xl font-bold text-center mb-6 animate-fade-in">Contact Us</h1>
+<div class="min-h-screen flex items-center justify-center bg-gray-100 py-12 px-4 sm:px-6 lg:px-8 animate-slide-up">
+    <form method="POST" novalidate class="space-y-6 w-full max-w-md">
+        {{ form.hidden_tag() }}
+        <div>
+            <label class="block text-sm font-medium text-gray-700">
+                <i class="fas fa-user mr-2"></i>{{ form.name.label.text }}
+            </label>
+            {{ form.name(class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm") }}
+        </div>
+        <div>
+            <label class="block text-sm font-medium text-gray-700">
+                <i class="fas fa-envelope mr-2"></i>{{ form.email.label.text }}
+            </label>
+            {{ form.email(class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm") }}
+        </div>
+        <div>
+            <label class="block text-sm font-medium text-gray-700">
+                <i class="fas fa-phone mr-2"></i>{{ form.phone.label.text }}
+            </label>
+            {{ form.phone(class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm") }}
+        </div>
+        <div>
+            <label class="block text-sm font-medium text-gray-700">
+                <i class="fas fa-building mr-2"></i>{{ form.organization.label.text }}
+            </label>
+            {{ form.organization(class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm") }}
+        </div>
+        <div>
+            <label class="block text-sm font-medium text-gray-700">
+                <i class="fas fa-user-tag mr-2"></i>{{ form.role.label.text }}
+            </label>
+            {{ form.role(class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm") }}
+        </div>
+        <div>
+            <label class="block text-sm font-medium text-gray-700">
+                <i class="fas fa-comment mr-2"></i>{{ form.message.label.text }}
+            </label>
+            {{ form.message(class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm resize-none", rows=5) }}
+        </div>
+        <div>
+            <label class="block text-sm font-medium text-gray-700">
+                <i class="fas fa-comments mr-2"></i>{{ form.preferred_contact.label.text }}
+            </label>
+            {{ form.preferred_contact(class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm") }}
+        </div>
+        <div>
+            <label class="block text-sm font-medium text-gray-700">
+                <i class="fas fa-clock mr-2"></i>{{ form.best_time.label.text }}
+            </label>
+            {{ form.best_time(class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm") }}
+        </div>
+        <div>
+            {{ form.submit(class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-150 ease-in-out animate-pulse") }}
+        </div>
+    </form>
 </div>
+
+<!-- Add Font Awesome and custom CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+<style>
+    @keyframes fade-in {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    @keyframes slide-up {
+        from { transform: translateY(50px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
+
+    .animate-fade-in {
+        animation: fade-in 1s ease-out forwards;
+    }
+
+    .animate-slide-up {
+        animation: slide-up 1s ease-out forwards;
+    }
+
+    .animate-pulse {
+        animation: pulse 1s infinite;
+    }
+</style>
 {% endblock %}

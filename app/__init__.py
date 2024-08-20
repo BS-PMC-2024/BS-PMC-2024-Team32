@@ -1,40 +1,46 @@
-# app/__init__.py
 from flask import Flask
+from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf.csrf import CSRFProtect
 from flask_migrate import Migrate
 from flask_mail import Mail
+from dotenv import load_dotenv
+from config import Config
 import os
 import logging
+from logging.handlers import RotatingFileHandler
 import subprocess
 
-logging.basicConfig(filename='app.log', level=logging.DEBUG)
-db_host = os.environ.get('DB_HOST', 'localhost')
+
+# Load environment variables first
+load_dotenv()
+
+if not os.path.exists('logs'):
+    os.mkdir('logs')
+file_handler = RotatingFileHandler('logs/app.log', maxBytes=10240, backupCount=10)
+formatter = logging.Formatter('%(asctime)s %(levelname)s: %(message)s [in %(pathname)s:%(lineno)d]')
+file_handler.setFormatter(formatter)
+file_handler.setLevel(logging.DEBUG)
+
+# Get the root logger
+root_logger = logging.getLogger()
+root_logger.setLevel(logging.DEBUG)
+root_logger.addHandler(file_handler)
+# Initialize Flask app
 app = Flask(__name__)
-if os.environ.get('FLASK_ENV') == 'testing':
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///:memory:'
-else:
-    app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+pymysql://root:your_password@{db_host}/mathgenius'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['WTF_CSRF_ENABLED'] = True
-app.config['SECRET_KEY'] = 'heythere'
+CORS(app)
+# Apply configurations from Config class
+app.config.from_object(Config)
+
+# Database setup
 db = SQLAlchemy(app)
-migrate = Migrate(app,db)
+migrate = Migrate(app, db)
+
+# CSRF protection
 csrf = CSRFProtect(app)
 
-
-app.config['MAIL_SERVER'] = 'smtp.gmail.com'
-app.config['MAIL_PORT'] = 587
-app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USERNAME'] = 'mathgeniussce@gmail.com'
-app.config['MAIL_PASSWORD'] = 'tshy wyhc joys usho'  # We'll generate this in a moment
-app.config['MAIL_DEFAULT_SENDER'] = 'mathgeniussce@gmail.com'
-app.config['CONTACT_EMAIL'] = 'mathgeniussce@gmail.com' # Email to receive inquiries
-
+# Mail setup
 mail = Mail(app)
-
-from app import routes, models
-
 
 def build_tailwind():
     subprocess.run([
@@ -44,7 +50,9 @@ def build_tailwind():
         "--minify"
     ])
 
-# Call this function before running the app
+# Build tailwind on app start
 build_tailwind()
 
-# Rest of your Flask app initialization...
+
+from app import models
+from app import routes

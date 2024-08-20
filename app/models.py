@@ -1,6 +1,5 @@
 # models.py
 from app import db
-from sqlalchemy import JSON
 from werkzeug.security import generate_password_hash, check_password_hash
 import logging
 from datetime import datetime, timezone 
@@ -97,25 +96,3 @@ class SupportTicket(db.Model):
     user = db.relationship('User', backref=db.backref('support_tickets', lazy=True))
 
 
-class AIProblems(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    problem_text = db.Column(db.Text, nullable=False)
-    correct_answer = db.Column(db.String(255), nullable=True)
-    options = db.Column(JSON)
-    topic = db.Column(db.String(100), nullable=False)
-    difficulty = db.Column(db.String(20), nullable=False)
-    course_name = db.Column(db.String(100), nullable=False)
-    explanation = db.Column(db.Text)
-    created_at = db.Column(db.DateTime, default=lambda: datetime.now(timezone.utc))
-    
-
-class StudentAttempts(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    student_id = db.Column(db.Integer, db.ForeignKey('students.id'), nullable=False)
-    problem_id = db.Column(db.Integer, db.ForeignKey('ai_problems.id'), nullable=False)
-    student_answer = db.Column(db.String(255), nullable=False)
-    is_correct = db.Column(db.Boolean, nullable=False)
-    attempt_time =  db.Column(db.DateTime, default=lambda: datetime.now(timezone.utc))
-
-    student = db.relationship('Student', backref=db.backref('attempts', lazy=True))
-    problem = db.relationship('AIProblems', backref=db.backref('attempts', lazy=True))

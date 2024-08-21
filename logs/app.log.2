@@ -1,0 +1,58 @@
+2024-08-21 17:06:12,835 DEBUG: HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers({'date': 'Wed, 21 Aug 2024 17:06:13 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'openai-organization': 'user-twqrk1wbxqulxonty27jqveg', 'openai-processing-ms': '889', 'openai-version': '2020-10-01', 'strict-transport-security': 'max-age=15552000; includeSubDomains; preload', 'x-ratelimit-limit-requests': '10000', 'x-ratelimit-limit-tokens': '200000', 'x-ratelimit-remaining-requests': '9998', 'x-ratelimit-remaining-tokens': '199575', 'x-ratelimit-reset-requests': '14.686s', 'x-ratelimit-reset-tokens': '127ms', 'x-request-id': 'req_325742ea800341115bae821f1f455e30', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8b6c3657f9644d37-FRA', 'content-encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400'}) [in /usr/local/lib/python3.10/site-packages/openai/_base_client.py:1008]
+2024-08-21 17:06:12,898 DEBUG: request_id: req_325742ea800341115bae821f1f455e30 [in /usr/local/lib/python3.10/site-packages/openai/_base_client.py:1016]
+2024-08-21 17:06:12,900 DEBUG: Generated problem: Problem: Solve for x: 3(x + 2) - 5 = 4x - 1
+
+A) x = 3  
+B) x = -1  
+C) x = 1  
+D) x = 0  
+
+Correct Answer: B (x = -1) [in /app/ai_utils.py:44]
+2024-08-21 17:06:12,910 DEBUG: Successfully generated problem: id=342, text=Solve for x: 3(x + 2) - 5 = 4x - 1, correct_answer=D [in /app/ai_utils.py:65]
+2024-08-21 17:06:12,917 INFO: 172.17.0.1 - - [21/Aug/2024 17:06:12] "POST /generate_problem HTTP/1.1" 200 - [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-08-21 17:06:21,196 DEBUG: Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': "You are a math teacher evaluating a student's answer for an algebra, geometry, or calculus problem."}, {'role': 'user', 'content': "\n        Problem: Solve for x: 3(x + 2) - 5 = 4x - 1\n        Options:\n        \nA) x = 3\nB) x = -1\nC) x = 1\n        Student's answer: B) x = -1\n\n        Evaluate the student's answer. Your response must follow this exact format:\n        CORRECT: [True/False]\n        EXPLANATION: [Your detailed explanation here]\n\n        Provide a step-by-step solution, explain why the answer is correct or incorrect, and state the correct answer if the student is wrong.\n        "}], 'model': 'gpt-3.5-turbo', 'max_tokens': 300, 'temperature': 0.3}} [in /usr/local/lib/python3.10/site-packages/openai/_base_client.py:445]
+2024-08-21 17:06:21,199 DEBUG: Sending HTTP Request: POST https://api.openai.com/v1/chat/completions [in /usr/local/lib/python3.10/site-packages/openai/_base_client.py:969]
+2024-08-21 17:06:21,201 DEBUG: close.started [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
+2024-08-21 17:06:21,202 DEBUG: close.complete [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
+2024-08-21 17:06:21,204 DEBUG: connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
+2024-08-21 17:06:21,329 DEBUG: connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7f484817b6a0> [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
+2024-08-21 17:06:21,330 DEBUG: start_tls.started ssl_context=<ssl.SSLContext object at 0x7f4849bd5ac0> server_hostname='api.openai.com' timeout=5.0 [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
+2024-08-21 17:06:21,399 DEBUG: start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7f48482db490> [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
+2024-08-21 17:06:21,402 DEBUG: send_request_headers.started request=<Request [b'POST']> [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
+2024-08-21 17:06:21,404 DEBUG: send_request_headers.complete [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
+2024-08-21 17:06:21,406 DEBUG: send_request_body.started request=<Request [b'POST']> [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
+2024-08-21 17:06:21,409 DEBUG: send_request_body.complete [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
+2024-08-21 17:06:21,411 DEBUG: receive_response_headers.started request=<Request [b'POST']> [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
+2024-08-21 17:06:23,632 DEBUG: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Wed, 21 Aug 2024 17:06:23 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'openai-organization', b'user-twqrk1wbxqulxonty27jqveg'), (b'openai-processing-ms', b'1851'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15552000; includeSubDomains; preload'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'200000'), (b'x-ratelimit-remaining-requests', b'9998'), (b'x-ratelimit-remaining-tokens', b'199557'), (b'x-ratelimit-reset-requests', b'13.463s'), (b'x-ratelimit-reset-tokens', b'132ms'), (b'x-request-id', b'req_4b589b8b0a646c379e165104b4c5a7c6'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8b6c36959cac37ef-FRA'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')]) [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
+2024-08-21 17:06:23,634 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK" [in /usr/local/lib/python3.10/site-packages/httpx/_client.py:1026]
+2024-08-21 17:06:23,636 DEBUG: receive_response_body.started request=<Request [b'POST']> [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
+2024-08-21 17:06:23,637 DEBUG: receive_response_body.complete [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
+2024-08-21 17:06:23,639 DEBUG: response_closed.started [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
+2024-08-21 17:06:23,640 DEBUG: response_closed.complete [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
+2024-08-21 17:06:23,641 DEBUG: HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers({'date': 'Wed, 21 Aug 2024 17:06:23 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'openai-organization': 'user-twqrk1wbxqulxonty27jqveg', 'openai-processing-ms': '1851', 'openai-version': '2020-10-01', 'strict-transport-security': 'max-age=15552000; includeSubDomains; preload', 'x-ratelimit-limit-requests': '10000', 'x-ratelimit-limit-tokens': '200000', 'x-ratelimit-remaining-requests': '9998', 'x-ratelimit-remaining-tokens': '199557', 'x-ratelimit-reset-requests': '13.463s', 'x-ratelimit-reset-tokens': '132ms', 'x-request-id': 'req_4b589b8b0a646c379e165104b4c5a7c6', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8b6c36959cac37ef-FRA', 'content-encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400'}) [in /usr/local/lib/python3.10/site-packages/openai/_base_client.py:1008]
+2024-08-21 17:06:23,643 DEBUG: request_id: req_4b589b8b0a646c379e165104b4c5a7c6 [in /usr/local/lib/python3.10/site-packages/openai/_base_client.py:1016]
+2024-08-21 17:06:23,645 DEBUG: AI response: CORRECT: False
+EXPLANATION: 
+
+Let's solve the given equation step by step:
+
+3(x + 2) - 5 = 4x - 1
+Expand the left side:
+3x + 6 - 5 = 4x - 1
+Combine like terms:
+3x + 1 = 4x - 1
+Subtract 3x from both sides:
+1 = x - 1
+Add 1 to both sides:
+2 = x
+
+Therefore, the correct answer is x = 2, which is not one of the options provided. The student's answer of x = -1 is incorrect. [in /app/ai_utils.py:105]
+2024-08-21 17:06:23,656 INFO: 172.17.0.1 - - [21/Aug/2024 17:06:23] "POST /submit_answer HTTP/1.1" 200 - [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-08-21 17:06:37,790 INFO: 172.17.0.1 - - [21/Aug/2024 17:06:37] "[31m[1mPOST /submit_answer HTTP/1.1[0m" 400 - [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-08-21 17:06:40,233 DEBUG: Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': 'You are a math teacher creating Algebra problems.'}, {'role': 'user', 'content': '\n        Create a medium Algebra problem with 4 multiple-choice options (A, B, C, D).\n        One option should be correct. Format your response as follows:\n\n        Problem: [Your problem statement here]\n        A) [Option A]\n        B) [Option B]\n        C) [Option C]\n        D) [Option D]\n        Correct Answer: [Letter of the correct option (A, B, C, or D)]\n\n        Ensure that the correct answer is included in the options.\n        '}], 'model': 'gpt-3.5-turbo', 'max_tokens': 300, 'temperature': 0.7}} [in /usr/local/lib/python3.10/site-packages/openai/_base_client.py:445]
+2024-08-21 17:06:40,236 DEBUG: Sending HTTP Request: POST https://api.openai.com/v1/chat/completions [in /usr/local/lib/python3.10/site-packages/openai/_base_client.py:969]
+2024-08-21 17:06:40,238 DEBUG: close.started [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
+2024-08-21 17:06:40,240 DEBUG: close.complete [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
+2024-08-21 17:06:40,242 DEBUG: connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
+2024-08-21 17:06:40,361 DEBUG: connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7f484819bb50> [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
+2024-08-21 17:06:40,363 DEBUG: start_tls.started ssl_context=<ssl.SSLContext object at 0x7f4849bd5ac0> server_hostname='api.openai.com' timeout=5.0 [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]

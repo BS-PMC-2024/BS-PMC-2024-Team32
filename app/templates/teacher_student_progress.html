@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ student.name }}'s Progress</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-4xl fade-in">
+        <h1 class="text-2xl font-semibold text-gray-800 mb-4">{{ student.name }}'s Progress</h1>
+        <p class="text-gray-600 mb-6">Below is the progress of the student based on their recent attempts:</p>
+
+        <div class="bg-blue-100 p-4 rounded-lg mb-4">
+            <h2 class="text-xl font-medium text-blue-700">Total Attempts: {{ progress['total_attempts'] }}</h2>
+            <p class="text-blue-700">Correct Attempts: {{ progress['correct_attempts'] }}</p>
+            <p class="text-blue-700">Accuracy: {{ progress['accuracy'] }}%</p>
+        </div>
+
+        <table class="min-w-full bg-white border border-gray-200">
+            <thead>
+                <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                    <th class="py-3 px-6 text-left">Date</th>
+                    <th class="py-3 px-6 text-left">Question</th>
+                    <th class="py-3 px-6 text-center">Student Answer</th>
+                    <th class="py-3 px-6 text-center">Correct Answer</th>
+                    <th class="py-3 px-6 text-center">Result</th>
+                </tr>
+            </thead>
+            <tbody class="text-gray-600 text-sm font-light">
+                {% for attempt in progress['attempts'] %}
+                <tr class="border-b border-gray-200 hover:bg-gray-100">
+                    <td class="py-3 px-6 text-left whitespace-nowrap">{{ attempt.attempt_time.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                    <td class="py-3 px-6 text-left">{{ attempt.problem.problem_text }}</td>
+                    <td class="py-3 px-6 text-center">{{ attempt.student_answer }}</td>
+                    <td class="py-3 px-6 text-center">{{ attempt.problem.correct_answer }}</td>
+                    <td class="py-3 px-6 text-center">
+                        {% if attempt.is_correct %}
+                        <span class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs">Correct</span>
+                        {% else %}
+                        <span class="bg-red-200 text-red-600 py-1 px-3 rounded-full text-xs">Incorrect</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="mt-6 text-right">
+            <a href="{{ url_for('dashboard') }}" class="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-150">Back to Dashboard</a>
+        </div>
+    </div>
+</body>
+</html>

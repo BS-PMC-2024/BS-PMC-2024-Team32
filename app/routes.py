@@ -1,12 +1,15 @@
 # routes.py
 from flask import current_app,render_template, request, redirect, url_for, flash, session, abort,jsonify
+import logging
+from ai_utils import generate_problem, provide_feedback, ai_tutor_response, check_answer
 from functools import wraps
 from app import app, db
-from app.models import User, Teacher, Student, Manager, SupportTicket,SupportStaff,Admin
+from app.models import User, Teacher, Student, Manager, SupportTicket, SupportStaff, Admin, AIProblems, StudentAttempts
 from app.forms import LoginForm, AddTeacherForm, AddStudentForm, AddManagerForm,ContactForm,SupportTicketForm,AddSupportStaffForm,CloseTicketForm
 from app.email import send_contact_email
-import logging
-from sqlalchemy import text
+import traceback
+from sqlalchemy import text,func,case
+
 
 @app.route('/')
 def home():
@@ -118,6 +121,85 @@ def add_support_staff():
         return redirect(url_for('dashboard'))
     return render_template('add_support_staff.html', form=form)
 
+
+@app.route('/course_progress')
+@login_required
+@student_required
+def student_course_progress():
+    course_name = request.args.get('course_name')
+    student = Student.query.get_or_404(session['user_id'])
+    course_progress = get_course_progress(student.id, course_name)
+    return render_template('student_course_progress.html', course={'name': course_name}, progress=course_progress)
+
+def get_course_progress(student_id, course_name):
+    # Retrieve all problems for the course
+    attempts = StudentAttempts.query.filter_by(student_id=student_id).join(AIProblems).filter(AIProblems.course_name == course_name).all()
+    total_attempts = len(attempts)
+
+    # Retrieve student's attempts for these problems
+    attempts = StudentAttempts.query.filter_by(student_id=student_id).join(AIProblems).filter(AIProblems.course_name == course_name).all()
+    correct_attempts = sum(1 for attempt in attempts if attempt.is_correct)
+
+    return {
+        'course': course_name,
+        'total_attempts': total_attempts,
+        'correct_attempts': correct_attempts,
+        'accuracy': (correct_attempts / total_attempts * 100) if total_attempts > 0 else 0
+    }
+
+
+def get_teacher_dashboard_data(teacher):
+    # Get overall class performance
+    class_performance = db.session.query(
+        func.count(StudentAttempts.id).label('total_attempts'),
+        func.sum(case((StudentAttempts.is_correct == True, 1), else_=0)).label('correct_attempts')
+    ).join(Student).filter(Student.teacher_id == teacher.id).first()
+
+    # Get individual student performance
+    students_performance = []
+    for student in teacher.students:
+        student_progress = get_student_progress(student.id)
+        students_performance.append({
+            'id': student.id,
+            'name': student.name,
+            'progress': student_progress
+        })
+
+    return {
+        'class_performance': {
+            'total_attempts': class_performance.total_attempts,
+            'correct_attempts': class_performance.correct_attempts,
+            'accuracy': (class_performance.correct_attempts / class_performance.total_attempts * 100) if class_performance.total_attempts > 0 else 0
+        },
+        'students_performance': students_performance
+    }
+
+def get_student_progress(student_id):
+    attempts = StudentAttempts.query.filter_by(student_id=student_id).all()
+    total_attempts = len(attempts)
+    correct_attempts = sum(1 for attempt in attempts if attempt.is_correct)
+
+    # Collect detailed attempt information
+    attempt_details = [
+        {
+            'attempt_time': attempt.attempt_time,
+            'problem': {
+                'problem_text': attempt.problem.problem_text,  # Accessing problem_text from the AIProblems model
+                'correct_answer': attempt.problem.correct_answer  # Accessing correct_answer from AIProblems
+            },
+            'student_answer': attempt.student_answer,
+            'is_correct': attempt.is_correct
+        }
+        for attempt in attempts
+    ]
+    
+    return {
+        'total_attempts': total_attempts,
+        'correct_attempts': correct_attempts,
+        'accuracy': (correct_attempts / total_attempts * 100) if total_attempts > 0 else 0,
+        'attempts': attempt_details  # Add the detailed attempt data here
+    }
+
 @app.route('/dashboard')
 @login_required
 def dashboard():
@@ -142,6 +224,7 @@ def dashboard():
         flash('Invalid user type or user not found', 'danger')
         return redirect(url_for('home'))
     
+
 
 @app.route('/add_teacher', methods=['GET', 'POST'])
 @login_required
@@ -196,22 +279,6 @@ def my_students():
     else:
         flash('Teacher not found', 'danger')
         return redirect(url_for('dashboard'))
-
-@app.route('/my_courses')
-@login_required
-@student_required
-def my_courses():
-    # Fetch the current student
-    student = Student.query.get(session['user_id'])
-    
-    # Placeholder for courses (we'll use a list of dictionaries for now)
-    courses = [
-        {"id": 1, "name": "Introduction to Algebra", "teacher": "Dr. Smith"},
-        {"id": 2, "name": "Geometry Basics", "teacher": "Prof. Johnson"},
-        {"id": 3, "name": "Advanced Calculus", "teacher": "Dr. Williams"}
-    ]
-    
-    return render_template('my_courses.html', student=student, courses=courses)
 
 @app.route('/logout')
 @login_required
@@ -329,3 +396,165 @@ def contact():
         return redirect(url_for('home'))
     return render_template('contact.html', form=form)
 
+
+@app.route('/my_courses')
+@login_required
+@student_required
+def my_courses():
+    student = Student.query.get(session['user_id'])
+    courses = [
+        {"id": 1, "name": "Algebra", "description": "Basic to advanced algebraic concepts"},
+        {"id": 2, "name": "Geometry", "description": "Study of shapes and spaces"},
+        {"id": 3, "name": "Calculus", "description": "Limits, derivatives, and integrals"}
+    ]
+    return render_template('my_courses.html', student=student, courses=courses)
+
+
+@app.route('/course/<int:course_id>')
+@login_required
+@student_required
+def course_page(course_id):
+    courses = {
+        1: {"name": "Algebra", "topics": ["Linear equations", "Quadratic equations", "Systems of equations"]},
+        2: {"name": "Geometry", "topics": ["Triangles", "Circles", "Polygons"]},
+        3: {"name": "Calculus", "topics": ["Limits", "Derivatives", "Integrals"]}
+    }
+    course = courses.get(course_id)
+    if not course:
+        abort(404)
+    
+    student_id = session['user_id']
+    progress = get_student_course_progress(student_id, course['name'])
+    
+    return render_template('course_page.html', course=course, progress=progress,course_name=course['name'])
+
+def get_student_course_progress(student_id, course_name):
+    attempts = StudentAttempts.query.filter_by(student_id=student_id)\
+        .join(AIProblems).filter(AIProblems.course_name == course_name).all()
+    total_attempts = len(attempts)
+    correct_attempts = sum(1 for attempt in attempts if attempt.is_correct)
+    
+    return {
+        'total_attempts': total_attempts,
+        'correct_attempts': correct_attempts,
+        'accuracy': (correct_attempts / total_attempts * 100) if total_attempts > 0 else 0
+    }
+
+
+@app.route('/generate_problem', methods=['POST'])
+@login_required
+def generate_problem_route():
+    data = request.json
+    course_name = data.get('course_name')
+    difficulty = data.get('difficulty')
+    
+    if not all([course_name, difficulty]):
+        return jsonify({'error': 'Missing required parameters'}), 400
+    
+    try:
+        problem = generate_problem(course_name, difficulty)
+        if problem:
+            return jsonify({
+                'id': problem.id,
+                'problem': problem.problem_text,
+                'options': problem.options
+            })
+        else:
+            return jsonify({'error': 'Failed to generate problem'}), 500
+    except Exception as e:
+        app.logger.error(f"Error in generate_problem_route: {str(e)}")
+        return jsonify({'error': 'An unexpected error occurred'}), 500
+
+
+
+@app.route('/submit_answer', methods=['POST'])
+@login_required
+def submit_answer_route():
+    data = request.json
+    problem_id = data.get('problem_id')
+    student_answer = data.get('answer')
+
+    if not all([problem_id, student_answer]):
+        return jsonify({'error': 'Missing required parameters'}), 400
+
+    try:
+        is_correct, explanation = check_answer(problem_id, student_answer)
+
+        if is_correct is None:
+            return jsonify({'error': 'Failed to check answer'}), 500
+
+        # Save the student's attempt
+        student_attempt = StudentAttempts(
+            student_id=session['user_id'],
+            problem_id=problem_id,
+            student_answer=student_answer,
+            is_correct=is_correct
+        )
+        db.session.add(student_attempt)
+        db.session.commit()
+
+        return jsonify({
+            'is_correct': is_correct,
+            'explanation': explanation
+        })
+    except Exception as e:
+        app.logger.error(f"Error in submit_answer_route: {str(e)}")
+        return jsonify({'error': 'An unexpected error occurred'}), 500
+
+
+
+
+@app.route('/student_progress')
+@login_required
+@student_required
+def student_progress():
+    student_id = session['user_id']
+    progress = get_student_progress(student_id)
+    return jsonify(progress)
+
+
+@app.route('/teacher/student_progress/<int:student_id>')
+@login_required
+@teacher_required
+def teacher_student_progress(student_id):
+    student = Student.query.get_or_404(student_id)
+    progress = get_student_progress(student_id)
+    return render_template('teacher_student_progress.html', student=student, progress=progress)
+
+
+@app.route('/get_feedback', methods=['POST'])
+def handle_get_feedback():
+    try:
+        data = request.json
+        student_input = data.get('student_input')
+        problem = data.get('problem')
+        course = data.get('course')
+        
+        current_app.logger.info(f"Received request: {data}")
+        
+        if not student_input or len(student_input.strip()) < 3:
+            return jsonify({'error': 'Please provide a more detailed question or feedback.'}), 400
+
+        try:
+            if problem:
+                response = provide_feedback(problem, student_input)
+            else:
+                response = ai_tutor_response(course, student_input)
+            
+            current_app.logger.info(f"AI response: {response}")
+            
+            if "API quota exceeded" in response:
+                return jsonify({'error': response}), 429
+            elif "An error occurred" in response:
+                return jsonify({'error': response}), 500
+            else:
+                return jsonify({'response': response})
+        except Exception as ai_error:
+            current_app.logger.error(f"Error in AI processing: {str(ai_error)}")
+            current_app.logger.error(traceback.format_exc())
+            return jsonify({'error': 'An error occurred while processing your request'}), 500
+        
+    except Exception as e:
+        current_app.logger.error(f"Error in handle_get_feedback: {str(e)}")
+        current_app.logger.error(traceback.format_exc())
+        return jsonify({'error': 'An unexpected error occurred'}), 500

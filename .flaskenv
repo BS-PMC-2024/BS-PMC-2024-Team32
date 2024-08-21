@@ -1,1 +1,2 @@
-FLASK_APP=migrations_manager.py
+FLASK_APP=run.py
+FLASK_ENV=development

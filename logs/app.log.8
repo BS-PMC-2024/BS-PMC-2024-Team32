@@ -1,0 +1,53 @@
+2024-08-21 17:03:56,100 DEBUG: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Wed, 21 Aug 2024 17:03:56 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'openai-organization', b'user-twqrk1wbxqulxonty27jqveg'), (b'openai-processing-ms', b'1253'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15552000; includeSubDomains; preload'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'200000'), (b'x-ratelimit-remaining-requests', b'9998'), (b'x-ratelimit-remaining-tokens', b'199558'), (b'x-ratelimit-reset-requests', b'11.254s'), (b'x-ratelimit-reset-tokens', b'132ms'), (b'x-request-id', b'req_93295380ef9e4a7708f84a824ace80ce'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8b6c32fecbce6927-FRA'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')]) [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
+2024-08-21 17:03:56,168 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK" [in /usr/local/lib/python3.10/site-packages/httpx/_client.py:1026]
+2024-08-21 17:03:56,170 DEBUG: receive_response_body.started request=<Request [b'POST']> [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
+2024-08-21 17:03:56,172 DEBUG: receive_response_body.complete [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
+2024-08-21 17:03:56,173 DEBUG: response_closed.started [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
+2024-08-21 17:03:56,174 DEBUG: response_closed.complete [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
+2024-08-21 17:03:56,175 DEBUG: HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers({'date': 'Wed, 21 Aug 2024 17:03:56 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'openai-organization': 'user-twqrk1wbxqulxonty27jqveg', 'openai-processing-ms': '1253', 'openai-version': '2020-10-01', 'strict-transport-security': 'max-age=15552000; includeSubDomains; preload', 'x-ratelimit-limit-requests': '10000', 'x-ratelimit-limit-tokens': '200000', 'x-ratelimit-remaining-requests': '9998', 'x-ratelimit-remaining-tokens': '199558', 'x-ratelimit-reset-requests': '11.254s', 'x-ratelimit-reset-tokens': '132ms', 'x-request-id': 'req_93295380ef9e4a7708f84a824ace80ce', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8b6c32fecbce6927-FRA', 'content-encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400'}) [in /usr/local/lib/python3.10/site-packages/openai/_base_client.py:1008]
+2024-08-21 17:03:56,177 DEBUG: request_id: req_93295380ef9e4a7708f84a824ace80ce [in /usr/local/lib/python3.10/site-packages/openai/_base_client.py:1016]
+2024-08-21 17:03:56,179 DEBUG: AI response: CORRECT: False
+
+EXPLANATION: To solve the equation 3x + 7 = 16, we first need to isolate x by subtracting 7 from both sides:
+
+3x + 7 - 7 = 16 - 7
+3x = 9
+
+Next, we divide both sides by 3 to solve for x:
+
+3x/3 = 9/3
+x = 3
+
+Therefore, the correct answer is A) x = 3. The student's answer of D) x = 6 is incorrect. [in /app/ai_utils.py:105]
+2024-08-21 17:03:56,188 INFO: 172.17.0.1 - - [21/Aug/2024 17:03:56] "POST /submit_answer HTTP/1.1" 200 - [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-08-21 17:04:34,197 INFO: 172.17.0.1 - - [21/Aug/2024 17:04:34] "GET /course/2 HTTP/1.1" 200 - [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-08-21 17:04:34,252 INFO: 172.17.0.1 - - [21/Aug/2024 17:04:34] "[36mGET /static/css/tailwind.output.css HTTP/1.1[0m" 304 - [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-08-21 17:04:35,243 DEBUG: Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': 'You are a math teacher creating Geometry problems.'}, {'role': 'user', 'content': '\n        Create a easy Geometry problem with 4 multiple-choice options (A, B, C, D).\n        One option should be correct. Format your response as follows:\n\n        Problem: [Your problem statement here]\n        A) [Option A]\n        B) [Option B]\n        C) [Option C]\n        D) [Option D]\n        Correct Answer: [Letter of the correct option (A, B, C, or D)]\n\n        Ensure that the correct answer is included in the options.\n        '}], 'model': 'gpt-3.5-turbo', 'max_tokens': 300, 'temperature': 0.7}} [in /usr/local/lib/python3.10/site-packages/openai/_base_client.py:445]
+2024-08-21 17:04:35,245 DEBUG: Sending HTTP Request: POST https://api.openai.com/v1/chat/completions [in /usr/local/lib/python3.10/site-packages/openai/_base_client.py:969]
+2024-08-21 17:04:35,247 DEBUG: close.started [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
+2024-08-21 17:04:35,249 DEBUG: close.complete [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
+2024-08-21 17:04:35,251 DEBUG: connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
+2024-08-21 17:04:35,336 DEBUG: connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7f484816f700> [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
+2024-08-21 17:04:35,338 DEBUG: start_tls.started ssl_context=<ssl.SSLContext object at 0x7f4849bd5ac0> server_hostname='api.openai.com' timeout=5.0 [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
+2024-08-21 17:04:35,410 DEBUG: start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7f484816dd20> [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
+2024-08-21 17:04:35,412 DEBUG: send_request_headers.started request=<Request [b'POST']> [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
+2024-08-21 17:04:35,414 DEBUG: send_request_headers.complete [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
+2024-08-21 17:04:35,416 DEBUG: send_request_body.started request=<Request [b'POST']> [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
+2024-08-21 17:04:35,418 DEBUG: send_request_body.complete [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
+2024-08-21 17:04:35,420 DEBUG: receive_response_headers.started request=<Request [b'POST']> [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
+2024-08-21 17:04:36,477 DEBUG: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Wed, 21 Aug 2024 17:04:36 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'openai-organization', b'user-twqrk1wbxqulxonty27jqveg'), (b'openai-processing-ms', b'769'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15552000; includeSubDomains; preload'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'200000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'199575'), (b'x-ratelimit-reset-requests', b'8.64s'), (b'x-ratelimit-reset-tokens', b'127ms'), (b'x-request-id', b'req_fbd231a58f5e02a04941eb3b48db097c'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8b6c33ff3bfb91d8-FRA'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')]) [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
+2024-08-21 17:04:36,479 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK" [in /usr/local/lib/python3.10/site-packages/httpx/_client.py:1026]
+2024-08-21 17:04:36,480 DEBUG: receive_response_body.started request=<Request [b'POST']> [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
+2024-08-21 17:04:36,481 DEBUG: receive_response_body.complete [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
+2024-08-21 17:04:36,482 DEBUG: response_closed.started [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
+2024-08-21 17:04:36,484 DEBUG: response_closed.complete [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
+2024-08-21 17:04:36,485 DEBUG: HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers({'date': 'Wed, 21 Aug 2024 17:04:36 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'openai-organization': 'user-twqrk1wbxqulxonty27jqveg', 'openai-processing-ms': '769', 'openai-version': '2020-10-01', 'strict-transport-security': 'max-age=15552000; includeSubDomains; preload', 'x-ratelimit-limit-requests': '10000', 'x-ratelimit-limit-tokens': '200000', 'x-ratelimit-remaining-requests': '9999', 'x-ratelimit-remaining-tokens': '199575', 'x-ratelimit-reset-requests': '8.64s', 'x-ratelimit-reset-tokens': '127ms', 'x-request-id': 'req_fbd231a58f5e02a04941eb3b48db097c', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8b6c33ff3bfb91d8-FRA', 'content-encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400'}) [in /usr/local/lib/python3.10/site-packages/openai/_base_client.py:1008]
+2024-08-21 17:04:36,486 DEBUG: request_id: req_fbd231a58f5e02a04941eb3b48db097c [in /usr/local/lib/python3.10/site-packages/openai/_base_client.py:1016]
+2024-08-21 17:04:36,488 DEBUG: Generated problem: Problem: What is the sum of the interior angles of a triangle?
+A) 90 degrees
+B) 180 degrees
+C) 270 degrees
+D) 360 degrees
+Correct Answer: B [in /app/ai_utils.py:44]
+2024-08-21 17:04:36,498 DEBUG: Successfully generated problem: id=337, text=What is the sum of the interior angles of a triangle?, correct_answer=B [in /app/ai_utils.py:65]
+2024-08-21 17:04:36,502 INFO: 172.17.0.1 - - [21/Aug/2024 17:04:36] "POST /generate_problem HTTP/1.1" 200 - [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]

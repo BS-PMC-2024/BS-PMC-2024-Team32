@@ -1,0 +1,45 @@
+[33mfee77de[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m Remove .env file from repository
+[33m086a748[m Final Project
+[33mc77d378[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Added ReadMe
+[33ma4451f8[m Revert "Sprint 3 Completed"
+[33m41fb6e5[m  Removed sensitive data from previous commit
+[33me87fae6[m Sprint 3 Completed
+[33mcf71186[m hhackaton finished
+[33m3c32ed0[m  BSPMS2432-96/BSPMS2432-100/BSPMS2432-103/BSPMS2432-105/BSPMS2432-106
+[33m152f8ba[m hackaton update
+[33m6fb3729[m Jenkins update
+[33m95445fb[m Jenkins update
+[33m2b429b4[m Jenkins update
+[33m13f71ea[m Jenkins update
+[33m5de7dea[m Automatic build
+[33m319212c[m Sprint 2 done
+[33m8f1a7bb[m Configuration
+[33m625c9a0[m BSPMS2432-11/20/28 Unit testings added for all login systems
+[33me4ca622[m Merge branch 'main' of https://github.com/BS-PMC-2024/BS-PMC-2024-Team32
+[33m73948e8[m Finished sprint 1 and framework and functionality for sprint 2
+[33mc6d66c9[m Update JenkinsFile reroll
+[33mbb0a606[m Update JenkinsFile check
+[33md758088[m fixed users sign in and log out with db
+[33m4656bb9[m update
+[33mdea2a6a[m changes
+[33m6388d97[m changes
+[33m1fec304[m rerolled
+[33mb6723f9[m update
+[33m332b6da[m requirements updated
+[33m7b7fad1[m Update JenkinsFile second time
+[33m217772a[m Update JenkinsFile !
+[33m83e4bed[m Changes to jenkins file
+[33m31715c9[m Added new files and folders and uptaded the project structure
+[33mef12f3a[m Python Version trouble
+[33ma7a8633[m Troublshooting removed, problem solved MF!
+[33m3a162c7[m Troubleshooting
+[33m44af166[m Updated troubleshoot
+[33me96835c[m Update to fix permission issues
+[33m939d6f4[m Added changes
+[33md93f5fc[m Add placeholder source and test files for testing
+[33m80e3a99[m Update JenkinsFile FOR CI/CD pipeline
+[33mae65db1[m Added jenkins folder/JenkninsFile(pipeline)
+[33m10e3538[m remove old dockerfile.txt and added new one
+[33m44762f0[m Update requirements.txt and Dcokerfile updated python version
+[33m7a15217[m Add requirements.txt, and app.py
+[33m8484895[m Add Dockerfile

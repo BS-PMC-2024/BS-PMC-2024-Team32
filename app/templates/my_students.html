@@ -27,6 +27,9 @@
                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                             Name
                         </th>
+                        <th scope="col" class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Action
+                        </th>
                     </tr>
                 </thead>
                 <tbody id="studentTable" class="bg-white divide-y divide-gray-200">
@@ -41,9 +44,11 @@
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                 {{ student.name }}
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                <a href="{{ url_for('teacher_student_progress', student_id=student.id) }}" class="text-blue-600 hover:text-blue-900 transition duration-150 ease-in-out">View Progress</a>
-                             </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                <a href="{{ url_for('teacher_student_progress', student_id=student.id) }}" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-300 ease-in-out transform hover:scale-105">
+                                    <i class="fas fa-chart-line mr-2"></i>View Progress
+                                </a>
+                            </td>
                         </tr>
                     {% endfor %}
                 </tbody>
@@ -80,7 +85,6 @@
 </script>
 
 <style>
-    /* Keyframe Animation for Rows */
     @keyframes slideIn {
         from {
             transform: translateX(-20px);
@@ -96,7 +100,6 @@
         animation: slideIn 0.5s ease-out;
     }
 
-    /* Additional Styling for Table */
     th, td {
         transition: all 0.3s ease;
     }

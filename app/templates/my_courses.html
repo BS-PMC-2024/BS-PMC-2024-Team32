@@ -1,29 +1,36 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="container mx-auto mt-10 px-4">
+<div class="container mx-auto px-4 py-8">
     <h1 class="text-3xl font-bold mb-6 text-gray-800">My Courses</h1>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {% for course in courses %}
-        <div class="bg-white shadow-lg rounded-lg overflow-hidden flex flex-col">
-            <div class="p-6 flex-1">
-                <h2 class="text-xl font-semibold mb-2">{{ course.name }}</h2>
+        <div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:scale-105">
+            <div class="p-6">
+                <h2 class="text-2xl font-semibold mb-2 text-gray-800 flex items-center">
+                    <i class="fas fa-book-open mr-2 text-blue-500"></i>
+                    {{ course.name }}
+                </h2>
                 <p class="text-gray-600 mb-4">{{ course.description }}</p>
-            </div>
-            <div class="p-6 bg-gray-100 flex space-x-4">
-                <a href="{{ url_for('course_page', course_id=course.id) }}" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300 flex-1 text-center">View Course</a>
-                <a href="#" data-course="{{ course.name }}" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition duration-300 flex-1 text-center view-progress-btn">View Progress</a>
+                <div class="flex justify-between items-center mt-4">
+                    <a href="{{ url_for('course_page', course_id=course.id) }}" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300">
+                        View Course
+                    </a>
+                    <a href="#" data-course="{{ course.name }}" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded transition duration-300 view-progress-btn">
+                        View Progress
+                    </a>
+                </div>
             </div>
         </div>
         {% endfor %}
     </div>
 </div>
 
-<script>
+<script>ם ל
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.view-progress-btn').forEach(button => {
         button.addEventListener('click', (event) => {
-            event.preventDefault(); // Prevent default anchor behavior
+            event.preventDefault();
             const courseName = button.getAttribute('data-course');
             window.location.href = `/course_progress?course_name=${encodeURIComponent(courseName)}`;
         });

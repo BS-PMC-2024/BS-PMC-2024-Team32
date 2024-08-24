@@ -1,7 +1,7 @@
 # routes.py
 from flask import current_app,render_template, request, redirect, url_for, flash, session, abort,jsonify
 import logging
-from ai_utils import generate_problem, provide_feedback, ai_tutor_response, check_answer
+from ai_utils import generate_math_problem, provide_feedback, ai_tutor_response, evaluate_student_answer
 from functools import wraps
 from app import app, db
 from app.models import User, Teacher, Student, Manager, SupportTicket, SupportStaff, Admin, AIProblems, StudentAttempts
@@ -440,9 +440,13 @@ def get_student_course_progress(student_id, course_name):
         'accuracy': (correct_attempts / total_attempts * 100) if total_attempts > 0 else 0
     }
 
+@app.route('/course_example')
+def course_example():
+    return render_template('course_example.html')
 
 @app.route('/generate_problem', methods=['POST'])
 @login_required
+@student_required
 def generate_problem_route():
     data = request.json
     course_name = data.get('course_name')
@@ -452,7 +456,7 @@ def generate_problem_route():
         return jsonify({'error': 'Missing required parameters'}), 400
     
     try:
-        problem = generate_problem(course_name, difficulty)
+        problem = generate_math_problem(course_name, difficulty)
         if problem:
             return jsonify({
                 'id': problem.id,
@@ -465,9 +469,8 @@ def generate_problem_route():
         app.logger.error(f"Error in generate_problem_route: {str(e)}")
         return jsonify({'error': 'An unexpected error occurred'}), 500
 
-
-
 @app.route('/submit_answer', methods=['POST'])
+@student_required
 @login_required
 def submit_answer_route():
     data = request.json
@@ -478,20 +481,10 @@ def submit_answer_route():
         return jsonify({'error': 'Missing required parameters'}), 400
 
     try:
-        is_correct, explanation = check_answer(problem_id, student_answer)
+        is_correct, explanation = evaluate_student_answer(problem_id, student_answer)
 
         if is_correct is None:
-            return jsonify({'error': 'Failed to check answer'}), 500
-
-        # Save the student's attempt
-        student_attempt = StudentAttempts(
-            student_id=session['user_id'],
-            problem_id=problem_id,
-            student_answer=student_answer,
-            is_correct=is_correct
-        )
-        db.session.add(student_attempt)
-        db.session.commit()
+            return jsonify({'error': 'Failed to evaluate answer'}), 500
 
         return jsonify({
             'is_correct': is_correct,

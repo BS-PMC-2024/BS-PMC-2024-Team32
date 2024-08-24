@@ -107,13 +107,6 @@
         <div id="explanation-box" class="mt-4 p-4 bg-gray-200 rounded-lg">
             <!-- Explanation will be displayed here -->
         </div>
-        
-        <div id="freeform-container" class="mt-6">
-            <h2 class="text-xl font-bold text-gray-800 mb-2">Ask a Question</h2>
-            
-            <div class="flex flex-col">
-                <textarea id="question-input" class="w-full px-3 py-2 border rounded resize-none mb-2" rows="4" placeholder="Type your question here..."></textarea>
-            </div>
 
             <div id="response-box" class="mt-4">
                 <!-- AI responses will be appended here -->
@@ -127,17 +120,14 @@
     const difficultySelect = document.getElementById('difficulty');
     const generateBtn = document.getElementById('generate-btn');
     const difficultyIcon = document.getElementById('difficulty-icon');
-    const questionInput = document.getElementById('question-input');
     const problemContainer = document.getElementById('problem-container');
     const explanationBox = document.getElementById('explanation-box');
     const courseName = '{{ course_name }}';
     console.log('Course name:', courseName);
 
     function updateDifficultyIcon() {
-        const selectedOption = difficultySelect.options[difficultySelect.selectedIndex];
-        const difficulty = selectedOption.value;
-        difficultyIcon.classList.remove('easy', 'medium', 'hard');
-        difficultyIcon.classList.add(difficulty);
+        const difficulty = difficultySelect.value;
+        difficultyIcon.className = `fas fa-signal mr-1 difficulty-icon ${difficulty}`;
     }
 
     function addMessage(content, type) {
@@ -150,24 +140,17 @@
     }
 
 function displayProblem(data) {
-    if (!data.problem) {
-        addMessage("AI: Error: The generated problem is empty. Please try again.", 'ai');
+    if (!data.problem || !Array.isArray(data.options) || data.options.length !== 4) {
+        addMessage("Error: Invalid problem format. Please try again.", 'ai');
         return;
     }
 
-    let optionsHtml = '';
-    if (Array.isArray(data.options) && data.options.length > 0) {
-        optionsHtml = data.options.map((option, index) => `
-            <label class="block mb-2">
-                <input type="radio" name="answer" value="${option.split(')')[0]}" class="mr-2">
-                ${option}
-            </label>
-        `).join('');
-    } else {
-        console.error('Options are not in the expected format:', data.options);
-        addMessage("AI: Error: The generated options are not in the correct format. Please try again.", 'ai');
-        return;
-    }
+    const optionsHtml = data.options.map((option, index) => `
+        <label class="block mb-2">
+            <input type="radio" name="answer" value="${String.fromCharCode(65 + index)}" class="mr-2">
+            ${String.fromCharCode(65 + index)}: ${option}
+        </label>
+    `).join('');
 
     problemContainer.innerHTML = `
         <p class="font-bold mb-2">Problem:</p>
@@ -180,69 +163,49 @@ function displayProblem(data) {
         </form>
     `;
     problemContainer.dataset.problemId = data.id;
-    addMessage(`AI: Here's a ${difficultySelect.value} ${courseName} problem for you:`, 'ai');
+    addMessage(`Here's a ${difficultySelect.value} ${courseName} problem for you:`, 'ai');
     addMessage(data.problem, 'ai');
 }
 
-generateBtn.addEventListener('click', () => {
-    const difficulty = difficultySelect.value;
-    const courseName = "{{ course_name }}";
+    generateBtn.addEventListener('click', () => {
+        const difficulty = difficultySelect.value;
 
-    addMessage(`You: Generate a ${difficulty} ${courseName} problem`, 'user');
+        addMessage(`Generate a ${difficulty} ${courseName} problem`, 'user');
 
-    const requestData = { 
-        course_name: courseName,
-        difficulty: difficulty
-    };
-
-    console.log('Sending request with data:', requestData);
-
-    fetch('/generate_problem', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'X-CSRFToken': '{{ csrf_token() }}'
-        },
-        body: JSON.stringify(requestData)
-    })
-    .then(response => {
-        console.log('Response status:', response.status);
-        return response.json().then(data => {
-            if (!response.ok) {
-                throw new Error(data.error || `HTTP error! status: ${response.status}`);
+        fetch('/generate_problem', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': '{{ csrf_token() }}'
+            },
+            body: JSON.stringify({ course_name: courseName, difficulty: difficulty })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                throw new Error(data.error);
             }
-            return data;
-        });
-    })
-    .then(data => {
-        console.log('Received data:', data);
-        if (data.problem) {
             displayProblem(data);
-        } else {
-            addMessage('Problem generation failed. Please try again.', 'ai');
-        }
-    })
-    .catch(error => {
-        console.error('Fetch error:', error);
-        addMessage(`Error: ${error.message}`, 'ai');
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            addMessage(`Error: ${error.message}`, 'ai');
+        });
     });
-});
 
-// Add event listener for answer submission
 document.addEventListener('submit', function(event) {
     if (event.target.id === 'answer-form') {
         event.preventDefault();
         const formData = new FormData(event.target);
-        const answerLetter = formData.get('answer');
+        const answer = formData.get('answer');
         const problemId = problemContainer.dataset.problemId;
 
-        // Get the full text of the answer
-        const answerFull = document.querySelector(`input[name="answer"][value="${answerLetter}"]`).nextSibling.textContent.trim();
+        if (!answer || !problemId) {
+            addMessage("Please select an answer before submitting.", 'ai');
+            return;
+        }
 
-        console.log('Submitting answer:', { problem_id: problemId, answer: answerFull });
-
-        // Display the user's answer in the chat box
-        addMessage(`You: My answer is ${answerFull}`, 'user');
+        addMessage(`My answer is: ${answer}`, 'user');
 
         fetch('/submit_answer', {
             method: 'POST',
@@ -250,81 +213,26 @@ document.addEventListener('submit', function(event) {
                 'Content-Type': 'application/json',
                 'X-CSRFToken': '{{ csrf_token() }}'
             },
-            body: JSON.stringify({ 
-                problem_id: problemId,
-                answer: answerFull
-            })
+            body: JSON.stringify({ problem_id: problemId, answer: answer })
         })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return response.json();
-        })
+        .then(response => response.json())
         .then(data => {
-            console.log('Received response:', data);
             if (data.error) {
-                addMessage(`AI: Error: ${data.error}`, 'ai');
-            } else {
-                // Display the explanation from the response
-                addMessage(`AI: ${data.explanation}`, 'ai');
+                throw new Error(data.error);
             }
+            const resultMessage = data.is_correct ? 'Correct!' : 'Incorrect.';
+            addMessage(`${resultMessage}`, 'ai');
+            explanationBox.innerHTML = `<strong>${resultMessage}</strong><br>${data.explanation}`;
+            explanationBox.style.display = 'block';
         })
         .catch(error => {
             console.error('Error:', error);
-            addMessage(`AI: An error occurred while submitting your answer: ${error.message}`, 'ai');
+            addMessage(`An error occurred: ${error.message}`, 'ai');
         });
     }
 });
 
-   questionInput.addEventListener('keydown', (event) => {
-        if (event.key === 'Enter' && !event.shiftKey) {
-            event.preventDefault();
-            const question = questionInput.value.trim();
-
-            if (question) {
-                addMessage(`You: ${question}`, 'user');
-
-                fetch('/get_feedback', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRFToken': '{{ csrf_token() }}'
-                    },
-                    body: JSON.stringify({ 
-                        student_input: question, 
-                        problem: null, 
-                        course: '{{ course_name }}' 
-                    })
-                })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    if (data.response) {
-                        addMessage(`AI: ${data.response}`, 'ai');
-                    } else {
-                        addMessage('Failed to get response. Please try again.', 'ai');
-                    }
-                })
-                .catch(error => {
-                    console.error('Fetch error:', error);
-                    addMessage(`Error: ${error.message}`, 'ai');
-                });
-
-                questionInput.value = '';
-            }
-        }
-    });
-
     difficultySelect.addEventListener('change', updateDifficultyIcon);
-
-    // Initialize icon based on the default selected option
     updateDifficultyIcon();
-
 </script>
-
 {% endblock %}

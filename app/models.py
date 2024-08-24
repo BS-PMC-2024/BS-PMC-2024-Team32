@@ -116,6 +116,5 @@ class StudentAttempts(db.Model):
     student_answer = db.Column(db.String(255), nullable=False)
     is_correct = db.Column(db.Boolean, nullable=False)
     attempt_time =  db.Column(db.DateTime, default=lambda: datetime.now(timezone.utc))
-
     student = db.relationship('Student', backref=db.backref('attempts', lazy=True))
     problem = db.relationship('AIProblems', backref=db.backref('attempts', lazy=True))

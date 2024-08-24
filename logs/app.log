@@ -1,44 +1,26 @@
-2024-08-21 17:08:04,763 DEBUG: HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers({'date': 'Wed, 21 Aug 2024 17:08:04 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'openai-organization': 'user-twqrk1wbxqulxonty27jqveg', 'openai-processing-ms': '938', 'openai-version': '2020-10-01', 'strict-transport-security': 'max-age=15552000; includeSubDomains; preload', 'x-ratelimit-limit-requests': '10000', 'x-ratelimit-limit-tokens': '200000', 'x-ratelimit-remaining-requests': '9999', 'x-ratelimit-remaining-tokens': '199575', 'x-ratelimit-reset-requests': '8.64s', 'x-ratelimit-reset-tokens': '127ms', 'x-request-id': 'req_420a0fff94c78268a7d1a6830d69aaa1', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8b6c39136aae4d67-FRA', 'content-encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400'}) [in /usr/local/lib/python3.10/site-packages/openai/_base_client.py:1008]
-2024-08-21 17:08:04,836 DEBUG: request_id: req_420a0fff94c78268a7d1a6830d69aaa1 [in /usr/local/lib/python3.10/site-packages/openai/_base_client.py:1016]
-2024-08-21 17:08:04,839 DEBUG: Generated problem: Problem: Solve for x: 3x + 5 = 17
-A) x = 4
-B) x = 5
-C) x = 6
-D) x = 7
-Correct Answer: B) x = 5 [in /app/ai_utils.py:44]
-2024-08-21 17:08:04,855 DEBUG: Successfully generated problem: id=344, text=Solve for x: 3x + 5 = 17, correct_answer=B [in /app/ai_utils.py:65]
-2024-08-21 17:08:04,861 INFO: 172.17.0.1 - - [21/Aug/2024 17:08:04] "POST /generate_problem HTTP/1.1" 200 - [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
-2024-08-21 17:08:11,281 DEBUG: Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': "You are a math teacher evaluating a student's answer for an algebra, geometry, or calculus problem."}, {'role': 'user', 'content': "\n        Problem: Solve for x: 3x + 5 = 17\n        Options:\n        A) x = 4\nB) x = 5\nC) x = 6\nD) x = 7\n        Student's answer: A) x = 4\n\n        Evaluate the student's answer. Your response must follow this exact format:\n        CORRECT: [True/False]\n        EXPLANATION: [Your detailed explanation here]\n\n        Provide a step-by-step solution, explain why the answer is correct or incorrect, and state the correct answer if the student is wrong.\n        "}], 'model': 'gpt-3.5-turbo', 'max_tokens': 300, 'temperature': 0.3}} [in /usr/local/lib/python3.10/site-packages/openai/_base_client.py:445]
-2024-08-21 17:08:11,284 DEBUG: Sending HTTP Request: POST https://api.openai.com/v1/chat/completions [in /usr/local/lib/python3.10/site-packages/openai/_base_client.py:969]
-2024-08-21 17:08:11,285 DEBUG: close.started [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
-2024-08-21 17:08:11,286 DEBUG: close.complete [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
-2024-08-21 17:08:11,288 DEBUG: connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
-2024-08-21 17:08:11,410 DEBUG: connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7f4848184460> [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
-2024-08-21 17:08:11,412 DEBUG: start_tls.started ssl_context=<ssl.SSLContext object at 0x7f4849bd5ac0> server_hostname='api.openai.com' timeout=5.0 [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
-2024-08-21 17:08:11,481 DEBUG: start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7f4848185390> [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
-2024-08-21 17:08:11,483 DEBUG: send_request_headers.started request=<Request [b'POST']> [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
-2024-08-21 17:08:11,486 DEBUG: send_request_headers.complete [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
-2024-08-21 17:08:11,488 DEBUG: send_request_body.started request=<Request [b'POST']> [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
-2024-08-21 17:08:11,489 DEBUG: send_request_body.complete [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
-2024-08-21 17:08:11,491 DEBUG: receive_response_headers.started request=<Request [b'POST']> [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
-2024-08-21 17:08:13,173 DEBUG: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Wed, 21 Aug 2024 17:08:13 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'openai-organization', b'user-twqrk1wbxqulxonty27jqveg'), (b'openai-processing-ms', b'1439'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15552000; includeSubDomains; preload'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'200000'), (b'x-ratelimit-remaining-requests', b'9998'), (b'x-ratelimit-remaining-tokens', b'199557'), (b'x-ratelimit-reset-requests', b'9.244s'), (b'x-ratelimit-reset-tokens', b'132ms'), (b'x-request-id', b'req_c43090913bf8f82e2a651aaf8d0d13c2'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8b6c39459bf3bb56-FRA'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')]) [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
-2024-08-21 17:08:13,175 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK" [in /usr/local/lib/python3.10/site-packages/httpx/_client.py:1026]
-2024-08-21 17:08:13,177 DEBUG: receive_response_body.started request=<Request [b'POST']> [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
-2024-08-21 17:08:13,179 DEBUG: receive_response_body.complete [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
-2024-08-21 17:08:13,180 DEBUG: response_closed.started [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
-2024-08-21 17:08:13,181 DEBUG: response_closed.complete [in /usr/local/lib/python3.10/site-packages/httpcore/_trace.py:45]
-2024-08-21 17:08:13,182 DEBUG: HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers({'date': 'Wed, 21 Aug 2024 17:08:13 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'openai-organization': 'user-twqrk1wbxqulxonty27jqveg', 'openai-processing-ms': '1439', 'openai-version': '2020-10-01', 'strict-transport-security': 'max-age=15552000; includeSubDomains; preload', 'x-ratelimit-limit-requests': '10000', 'x-ratelimit-limit-tokens': '200000', 'x-ratelimit-remaining-requests': '9998', 'x-ratelimit-remaining-tokens': '199557', 'x-ratelimit-reset-requests': '9.244s', 'x-ratelimit-reset-tokens': '132ms', 'x-request-id': 'req_c43090913bf8f82e2a651aaf8d0d13c2', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8b6c39459bf3bb56-FRA', 'content-encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400'}) [in /usr/local/lib/python3.10/site-packages/openai/_base_client.py:1008]
-2024-08-21 17:08:13,184 DEBUG: request_id: req_c43090913bf8f82e2a651aaf8d0d13c2 [in /usr/local/lib/python3.10/site-packages/openai/_base_client.py:1016]
-2024-08-21 17:08:13,186 DEBUG: AI response: CORRECT: True
-
-EXPLANATION: To solve for x in the equation 3x + 5 = 17, we first need to isolate x. 
-
-Subtracting 5 from both sides of the equation:
-3x + 5 - 5 = 17 - 5
-3x = 12
-
-Dividing both sides by 3 to solve for x:
-x = 4
-
-Therefore, the student's answer of x = 4 is correct. [in /app/ai_utils.py:105]
-2024-08-21 17:08:13,195 INFO: 172.17.0.1 - - [21/Aug/2024 17:08:13] "POST /submit_answer HTTP/1.1" 200 - [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-08-24 11:45:07,398 INFO: 172.17.0.1 - - [24/Aug/2024 11:45:07] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 - [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-08-24 11:45:39,996 INFO: 172.17.0.1 - - [24/Aug/2024 11:45:39] "GET / HTTP/1.1" 200 - [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-08-24 11:45:40,046 INFO: 172.17.0.1 - - [24/Aug/2024 11:45:40] "[36mGET /static/css/tailwind.output.css HTTP/1.1[0m" 304 - [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-08-24 11:45:40,108 INFO: 172.17.0.1 - - [24/Aug/2024 11:45:40] "[35m[1mGET /static/videos/1.mp4 HTTP/1.1[0m" 206 - [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-08-24 11:45:40,111 INFO: 172.17.0.1 - - [24/Aug/2024 11:45:40] "[35m[1mGET /static/videos/3.mp4 HTTP/1.1[0m" 206 - [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-08-24 11:45:40,113 INFO: 172.17.0.1 - - [24/Aug/2024 11:45:40] "[35m[1mGET /static/videos/2.mp4 HTTP/1.1[0m" 206 - [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-08-24 11:45:40,113 INFO: 172.17.0.1 - - [24/Aug/2024 11:45:40] "[35m[1mGET /static/videos/4.mp4 HTTP/1.1[0m" 206 - [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-08-24 11:45:40,167 INFO: 172.17.0.1 - - [24/Aug/2024 11:45:40] "[35m[1mGET /static/videos/3.mp4 HTTP/1.1[0m" 206 - [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-08-24 11:45:40,168 INFO: 172.17.0.1 - - [24/Aug/2024 11:45:40] "[35m[1mGET /static/videos/4.mp4 HTTP/1.1[0m" 206 - [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-08-24 11:45:40,169 INFO: 172.17.0.1 - - [24/Aug/2024 11:45:40] "[35m[1mGET /static/videos/2.mp4 HTTP/1.1[0m" 206 - [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-08-24 11:45:49,602 INFO: 172.17.0.1 - - [24/Aug/2024 11:45:49] "GET / HTTP/1.1" 200 - [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-08-24 11:45:49,671 INFO: 172.17.0.1 - - [24/Aug/2024 11:45:49] "[36mGET /static/css/tailwind.output.css HTTP/1.1[0m" 304 - [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-08-24 11:45:49,745 INFO: 172.17.0.1 - - [24/Aug/2024 11:45:49] "[35m[1mGET /static/videos/2.mp4 HTTP/1.1[0m" 206 - [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-08-24 11:45:49,750 INFO: 172.17.0.1 - - [24/Aug/2024 11:45:49] "[35m[1mGET /static/videos/4.mp4 HTTP/1.1[0m" 206 - [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-08-24 11:45:51,653 INFO: 172.17.0.1 - - [24/Aug/2024 11:45:51] "GET /course_example HTTP/1.1" 200 - [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-08-24 11:45:51,719 INFO: 172.17.0.1 - - [24/Aug/2024 11:45:51] "[36mGET /static/css/tailwind.output.css HTTP/1.1[0m" 304 - [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-08-24 11:47:34,779 INFO: 172.17.0.1 - - [24/Aug/2024 11:47:34] "GET / HTTP/1.1" 200 - [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-08-24 11:47:34,814 INFO: 172.17.0.1 - - [24/Aug/2024 11:47:34] "[36mGET /static/css/tailwind.output.css HTTP/1.1[0m" 304 - [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-08-24 11:47:35,845 INFO: 172.17.0.1 - - [24/Aug/2024 11:47:35] "[35m[1mGET /static/videos/1.mp4 HTTP/1.1[0m" 206 - [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-08-24 11:47:35,847 INFO: 172.17.0.1 - - [24/Aug/2024 11:47:35] "[35m[1mGET /static/videos/2.mp4 HTTP/1.1[0m" 206 - [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-08-24 11:47:35,851 INFO: 172.17.0.1 - - [24/Aug/2024 11:47:35] "[35m[1mGET /static/videos/4.mp4 HTTP/1.1[0m" 206 - [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-08-24 11:47:35,851 INFO: 172.17.0.1 - - [24/Aug/2024 11:47:35] "[35m[1mGET /static/videos/3.mp4 HTTP/1.1[0m" 206 - [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-08-24 11:47:38,040 INFO: 172.17.0.1 - - [24/Aug/2024 11:47:38] "GET / HTTP/1.1" 200 - [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-08-24 11:47:38,101 INFO: 172.17.0.1 - - [24/Aug/2024 11:47:38] "[36mGET /static/css/tailwind.output.css HTTP/1.1[0m" 304 - [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-08-24 11:47:39,943 INFO: 172.17.0.1 - - [24/Aug/2024 11:47:39] "GET /course_example HTTP/1.1" 200 - [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]
+2024-08-24 11:47:40,008 INFO: 172.17.0.1 - - [24/Aug/2024 11:47:40] "[36mGET /static/css/tailwind.output.css HTTP/1.1[0m" 304 - [in /usr/local/lib/python3.10/site-packages/werkzeug/_internal.py:97]

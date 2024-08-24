@@ -123,7 +123,7 @@
                 <div class="hidden md:flex items-center space-x-8"> <!-- Increased space-x-8 -->
                     <a href="{{ url_for('home') }}" class="nav-item nav-link text-gray-700 hover:text-blue-600 transition duration-300 hover-grow"><i class="fas fa-home"></i> Home</a>
                     <div class="relative group">
-                        <a href="#" class="nav-item nav-link text-gray-700 hover:text-blue-600 transition duration-300 hover-grow"><i class="fas fa-book"></i> Courses</a>
+                        <a href="{{ url_for('course_example') }}" class="nav-item nav-link text-gray-700 hover:text-blue-600 transition duration-300 hover-grow"><i class="fas fa-book"></i> Courses</a>
                     </div>
                     <a href="{{ url_for('about') }}" class="nav-item nav-link text-gray-700 hover:text-blue-600 transition duration-300 hover-grow"><i class="fas fa-info-circle"></i> About</a>
                     {% if 'user_id' not in session %}

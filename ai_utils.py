@@ -1,12 +1,12 @@
 from openai import OpenAI
 from config import Config
-from app.models import AIProblems, db
+from app.models import AIProblems,db,StudentAttempts
 import app
 import traceback
 import logging
 import re
 import json
-
+from flask import session
 
 logger = logging.getLogger(__name__)
 
@@ -14,42 +14,44 @@ logger = logging.getLogger(__name__)
 client = OpenAI(api_key=Config.OPENAI_API_KEY)
 
 
-def generate_problem(course_name, difficulty):
+def generate_math_problem(course_name, difficulty):
+    prompt = f"""
+    Create a {difficulty} {course_name} problem with 4 multiple-choice options.
+    Format your response exactly as follows:
+
+    PROBLEM: [Problem statement]
+    A: [Option A]
+    B: [Option B]
+    C: [Option C]
+    D: [Option D]
+    CORRECT: [Letter of the correct option (A, B, C, or D)]
+
+    Ensure that:
+    1. The options are distinct and complete answers.
+    2. Only one option is correct.
+    3. The problem is appropriate for {course_name} at {difficulty} level.
+    4. You clearly indicate which answer is correct using the CORRECT: field.
+    """
+
     try:
-        prompt = f"""
-        Create a {difficulty} {course_name} problem with 4 multiple-choice options (A, B, C, D).
-        One option should be correct. Format your response as follows:
-
-        Problem: [Your problem statement here]
-        A) [Option A]
-        B) [Option B]
-        C) [Option C]
-        D) [Option D]
-        Correct Answer: [Letter of the correct option (A, B, C, or D)]
-
-        Ensure that the correct answer is included in the options.
-        """
-
         response = client.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=[
                 {"role": "system", "content": f"You are a math teacher creating {course_name} problems."},
                 {"role": "user", "content": prompt}
             ],
-            max_tokens=300,
+            max_tokens=500,
             temperature=0.7
         )
         
         content = response.choices[0].message.content.strip()
         logger.debug(f"Generated problem: {content}")
         
+        # Parse the response
         lines = content.split('\n')
-        problem_text = lines[0].replace('Problem: ', '').strip()
-        options = [line.strip() for line in lines[1:5]]
-        correct_answer = lines[5].replace('Correct Answer: ', '').strip()
-
-        # Ensure correct_answer is just the letter
-        correct_answer = correct_answer[0] if correct_answer else ''
+        problem_text = lines[0].replace('PROBLEM:', '').strip()
+        options = [line.strip()[3:] for line in lines[1:5]]  # Remove A:, B:, etc.
+        correct_answer = lines[5].replace('CORRECT:', '').strip()
 
         new_problem = AIProblems(
             problem_text=problem_text,
@@ -66,63 +68,64 @@ def generate_problem(course_name, difficulty):
         return new_problem
         
     except Exception as e:
-        logger.error(f"Error in generate_problem: {str(e)}")
+        logger.error(f"Error in generate_math_problem: {str(e)}")
         logger.exception("Exception details:")
         return None
-    
 
-def check_answer(problem_id, student_answer):
+def evaluate_student_answer(problem_id, student_answer):
     problem = AIProblems.query.get(problem_id)
     if not problem:
         logger.error(f"Problem with id {problem_id} not found")
-        return None, None
+        return None, "Error: Problem not found"
+
+    is_correct = student_answer.upper() == problem.correct_answer.upper()
+
+    explanation_prompt = f"""
+    Problem: {problem.problem_text}
+    Options:
+    A: {problem.options[0]}
+    B: {problem.options[1]}
+    C: {problem.options[2]}
+    D: {problem.options[3]}
+    Correct Answer: {problem.correct_answer}
+    Student's Answer: {student_answer}
+
+    Please provide a detailed explanation of why the answer is {"correct" if is_correct else "incorrect"}.
+    Include the correct solution process.
+    """
 
     try:
-        prompt = f"""
-        Problem: {problem.problem_text}
-        Options:
-        {chr(10).join(problem.options)}
-        Student's answer: {student_answer}
-
-        Evaluate the student's answer. Your response must follow this exact format:
-        CORRECT: [True/False]
-        EXPLANATION: [Your detailed explanation here]
-
-        Provide a step-by-step solution, explain why the answer is correct or incorrect, and state the correct answer if the student is wrong.
-        """
-
         response = client.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=[
-                {"role": "system", "content": "You are a math teacher evaluating a student's answer for an algebra, geometry, or calculus problem."},
-                {"role": "user", "content": prompt}
+                {"role": "system", "content": "You are a math teacher providing explanations for problem solutions."},
+                {"role": "user", "content": explanation_prompt}
             ],
             max_tokens=300,
-            temperature=0.3
+            temperature=0.5
         )
         
-        ai_response = response.choices[0].message.content.strip()
-        logger.debug(f"AI response: {ai_response}")
-
-        # Extract AI's assessment and explanation
-        ai_assessment_match = re.search(r'CORRECT:\s*(True|False)', ai_response, re.IGNORECASE)
-        ai_explanation_match = re.search(r'EXPLANATION:\s*(.+)', ai_response, re.DOTALL)
-
-        if not ai_assessment_match or not ai_explanation_match:
-            logger.error("AI response format is incorrect")
-            return None, "Error in processing the answer. Please try again."
-
-        is_correct = ai_assessment_match.group(1).lower() == 'true'
-        explanation = ai_explanation_match.group(1).strip()
+        explanation = response.choices[0].message.content.strip()
+        
+        # Save the student's attempt
+        user_id = session.get('user_id')
+        if user_id:
+            student_attempt = StudentAttempts(
+                student_id=user_id,
+                problem_id=problem_id,
+                student_answer=student_answer,
+                is_correct=is_correct
+            )
+            db.session.add(student_attempt)
+            db.session.commit()
 
         return is_correct, explanation
 
     except Exception as e:
-        logger.error(f"Error in check_answer: {str(e)}")
+        logger.error(f"Error in evaluate_student_answer: {str(e)}")
         logger.exception("Exception details:")
-        return None, None
+        return None, f"Error evaluating answer: {str(e)}"
     
-
 
 def provide_feedback(problem, student_answer):
     try:
